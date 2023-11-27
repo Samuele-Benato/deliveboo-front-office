@@ -1,21 +1,21 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import JumbotronHomepage from "../components/homepage/JumbotronHomepage.vue";
+import RestaurantsTypeSection from "../components/homepage/RestaurantsTypeSection.vue";
 
 export default {
-  data() {
-    return {
-      title: "Home page"
-    }
-  }
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    JumbotronHomepage ,
+    RestaurantsTypeSection
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <JumbotronHomepage/>
+  <RestaurantsTypeSection/>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
