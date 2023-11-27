@@ -14,11 +14,7 @@ export default {
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <router-link :to="{name: 'home'}" class="nav-link">
-                    Home
-                </router-link>
-            </li>
+            <!-- eventuali router link -->
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -30,5 +26,14 @@ export default {
 </template>
 
 <style lang="scss">
+nav{
+    height: 80px;
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
 
+    box-shadow: 3px 3px 3px 3px #fff;
+}
 </style>
