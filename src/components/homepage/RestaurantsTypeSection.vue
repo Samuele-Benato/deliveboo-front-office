@@ -1,11 +1,44 @@
 <script>
 import axios from 'axios';
+import {store} from '../../data/store';
+import { RouterView } from 'vue-router';
+import RestaurantList from "../restaurants/RestaurantList.vue";
+
+export default {
+  data() {
+    return {
+      restaurants: [],
+    //   pagination: [],
+    };
+  },
+
+  components: { RestaurantList },
+
+  methods: {
+    fetchRestaurants(uri = store.api.baseUrl + "restaurants") {
+      axios.get(uri).then((response) => {
+        this.restaurants = response.data.data;
+        // this.pagination = response.data.links;
+      })
+      .catch((error) => {
+        console.error('Errore nella chiamata API', error);
+      });
+    },
+  },
+
+  created() {
+    this.fetchRestaurants();
+  },
+};
 </script>
 
 <template>
     <div class="restaurants-type">
+      <div class="container-type-section">
         <h2 class="title-type-section">Che si mangia oggi?</h2>
-    </div>
+        <RestaurantList :restaurants="restaurants"/>
+      </div>
+    </div>     
 </template>
 
 <style lang="scss" scoped>
@@ -21,11 +54,14 @@ import axios from 'axios';
     align-items: start;
 }
 
-.title-type-section{
+.container-type-section{
     background-color: rgba($color: #fff, $alpha: 0.8);
     padding: 0.5rem;
     border-radius: 5px;
     width: 70%;
+}
+
+.title-type-section{
     text-align: center;
     color: #444;
     font-weight: 700;
