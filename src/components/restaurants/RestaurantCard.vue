@@ -7,7 +7,11 @@ export default {
 </script>
 
 <template>
-    <h1 class="text-white">
-        Prova
-    </h1>
+  <div>
+    <h3>{{ restaurant.name }}</h3>
+
+    <h5>{{ restaurant.address }}</h5>
+    <h5>{{ restaurant.description }}</h5>
+    <h5>{{ restaurant.phone }}</h5>
+  </div>
 </template>

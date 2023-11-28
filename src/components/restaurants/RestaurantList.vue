@@ -1,21 +1,23 @@
 <script>
-import RestaurantCard from './RestaurantCard.vue';
+import RestaurantCard from "./RestaurantCard.vue";
 export default {
-    components: {
+  components: {
     RestaurantCard,
   },
 
-  props:{
-      restaurants: Object,
-    },
+  props: {
+    restaurants: Object,
+  },
 };
 </script>
 
 <template>
-    <RestaurantCard class="my-3" v-for="restaurant in restaurants" :key="restaurant.id" :restaurant="restaurant" />
-    <h1>list</h1>
+  <RestaurantCard
+    class="my-3"
+    v-for="restaurant in restaurants"
+    :key="restaurant.id"
+    :restaurant="restaurant"
+  />
 </template>
 
-<style lang="scss">
- 
-</style>
+<style lang="scss"></style>
