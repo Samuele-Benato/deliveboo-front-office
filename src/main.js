@@ -13,9 +13,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faHouse ,faPhone, faLocationDot} from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faHouse)
+library.add(faHouse,faPhone , faLocationDot)
 
 import App from './App.vue'
 
