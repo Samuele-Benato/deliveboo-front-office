@@ -10,7 +10,6 @@ export default {
   <div class="_area text-center">
     <div class="_card">
       <img :src="restaurant.image" class="img-fluid _img" />
-      class="img-fluid _img" />
       <div class="_card_detail text-left">
         <h4>{{ restaurant.name }}</h4>
         <p>

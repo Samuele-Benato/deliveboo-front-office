@@ -29,8 +29,7 @@ export default {
   components: { RestaurantCard },
 
   methods: {
-    /* NON TROVA LA PAGINA
-   fetchGetRestaurants() {
+    fetchRestaurants() {
       axios
         .post(
           store.api.baseUrl + "get-restaurants-by-filters",
@@ -39,7 +38,7 @@ export default {
         .then((response) => {
           this.filteredRestaurants = response.data.data;
         });
-    },*/
+    },
 
     fetchTypes() {
       axios.get(store.api.baseUrl + "types").then((response) => {
@@ -66,14 +65,21 @@ export default {
 </script>
 
 <template>
+  <!-- DA AGGIUSTARE GRAFICAMENTE -->
+
   <div class="container">
     <h1 class="my-5">Ricerca avanzata</h1>
     <div class="row">
       <div class="col-3">
-        <h4>Seleziona i Types</h4>
+        <h4>Seleziona i tipi</h4>
 
-        <span v-for="type in types" :key="type.id" @click="toggleType(type)">
-          {{ type.name }}
+        <span
+          v-for="type in types"
+          :key="type.id"
+          :class="{ disabled: type.active }"
+          @click="toggleType(type)"
+        >
+          {{ type.name }} <br />
         </span>
       </div>
       <div class="col-9">
@@ -91,7 +97,7 @@ export default {
 
 <style lang="scss">
 .disabled {
-  background-color: #555 !important;
+  background-color: #777 !important;
 }
 
 .clickable {
