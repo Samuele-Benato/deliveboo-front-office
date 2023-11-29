@@ -12,12 +12,13 @@ export default {
 </script>
 
 <template>
-  <RestaurantCard
-    class="my-3"
-    v-for="restaurant in restaurants"
-    :key="restaurant.id"
-    :restaurant="restaurant"
-  />
+ <div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-xxl-4" v-for="restaurant in restaurants" :key="restaurant.id">
+            <RestaurantCard class="my-3" :restaurant="restaurant"/>
+        </div>
+    </div>
+</div>
 </template>
 
 <style lang="scss"></style>
