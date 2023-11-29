@@ -29,14 +29,10 @@
 }
 
 .title-jumbo{
-    background-color: rgba($color: #fff, $alpha: 0.8);
+    background-color: rgba($color: #000, $alpha: 0.8);
     padding: 0.5rem;
     border-radius: 5px;
-    width: 35%;
-    color: #444;
+    width: 100%;
+    color: #d7d3d3;
 }
-.title-jumbo:hover{
-    transform: scale(1.1);
-    box-shadow: 3px 3px 3px 3px #fff;
-    }
 </style>

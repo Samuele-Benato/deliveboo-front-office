@@ -66,15 +66,14 @@ export default {
 }
 
 .container-type-section {
-  background-color: rgba($color: #fff, $alpha: 0.8);
+  background-color: rgba($color: #000, $alpha: 0.8);
   padding: 0.5rem;
-  border-radius: 5px;
-  width: 70%;
+  width:100%;
 }
 
 .title-type-section {
   text-align: center;
-  color: #444;
+  color: #d7d3d3;
   font-weight: 700;
 }
 </style>

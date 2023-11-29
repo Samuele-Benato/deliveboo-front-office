@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
       <router-link class="navbar-brand ms-2" :to="{ name: 'home' }">
         <font-awesome-icon :icon="['fas', 'house']" />
@@ -46,6 +46,6 @@ nav {
   top: 0;
   z-index: 10;
 
-  box-shadow: 3px 3px 3px 3px #fff;
+  box-shadow: 3px 3px 3px 3px #444;
 }
 </style>
