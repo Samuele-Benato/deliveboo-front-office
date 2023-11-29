@@ -3,6 +3,12 @@ export default {
   props: {
     restaurant: Object,
   },
+  methods: {
+    getFullImagePath(imagePath) {
+      // Non è necessario aggiungere il dominio dell'API se il percorso è già completo
+      return imagePath;
+    },
+  },
 };
 </script>
 
@@ -10,8 +16,9 @@ export default {
   <div class="_area text-center">
     <div class="_card">
       <img
-        src="https://i.pinimg.com/originals/74/84/4c/74844c4207ec819b6ffaa6291591311e.jpg"
+        :src="getFullImagePath(restaurant.image)"
         class="img-fluid _img"
+        style="width: 100%; height: auto"
       />
       <div class="_card_detail text-left">
         <h4>{{ restaurant.name }}</h4>
