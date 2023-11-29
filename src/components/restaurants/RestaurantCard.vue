@@ -9,7 +9,7 @@ export default {
 <template>
   <div class="_area text-center">
     <div class="_card">
-      <img :src="restaurant.image" class="img-fluid _img" />
+      <img :src="restaurant.image" class=" _img" />
       <div class="_card_detail text-left">
         <h4>{{ restaurant.name }}</h4>
         <p>
@@ -47,8 +47,12 @@ export default {
 ._card:hover {
   transform: scale(1.04);
 }
+
 ._img {
   border-radius: 10px;
+  width: 350px;
+  height: 250px;
+
 }
 
 ._card_detail {
