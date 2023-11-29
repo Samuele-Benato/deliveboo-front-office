@@ -3,25 +3,27 @@ import axios from "axios";
 import { store } from "../../data/store";
 import { RouterView } from "vue-router";
 import RestaurantList from "../restaurants/RestaurantList.vue";
+import PaginationUi from "../ui/PaginationUi.vue";
 
 export default {
   data() {
     return {
       restaurants: [],
-      //   pagination: [],
+      pagination: [],
     };
   },
 
-  components: { RestaurantList },
+  components: { RestaurantList, PaginationUi },
 
   methods: {
     fetchRestaurants(uri = store.api.baseUrl + "restaurants") {
       axios
         .get(uri)
         .then((response) => {
-          this.restaurants = response.data;
-          console.log(this.restaurants);
-          // this.pagination = response.data.links;
+          this.restaurants = response.data.data;
+          //  console.log(this.restaurants);
+          this.pagination = response.data.links;
+          //   console.log(this.pagination);
         })
         .catch((error) => {
           console.error("Errore nella chiamata API", error);
@@ -42,6 +44,7 @@ export default {
       <RestaurantList :restaurants="restaurants" />
     </div>
   </div>
+  <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
 </template>
 
 <style lang="scss" scoped>

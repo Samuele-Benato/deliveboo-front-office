@@ -72,15 +72,7 @@ export default {
       <div class="col-3">
         <h4>Seleziona i Types</h4>
 
-        <span
-          v-for="type in types"
-          :key="type.id"
-          :class="{
-            disabled: !type.active,
-          }"
-          @click="toggleType(type)"
-          class="badge mx-1 clickable"
-        >
+        <span v-for="type in types" :key="type.id" @click="toggleType(type)">
           {{ type.name }}
         </span>
       </div>
