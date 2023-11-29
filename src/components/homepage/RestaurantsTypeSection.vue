@@ -42,9 +42,9 @@ export default {
     <div class="container-type-section">
       <h2 class="title-type-section">Che si mangia oggi?</h2>
       <RestaurantList :restaurants="restaurants" />
+      <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
     </div>
   </div>
-  <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
 </template>
 
 <style lang="scss" scoped>

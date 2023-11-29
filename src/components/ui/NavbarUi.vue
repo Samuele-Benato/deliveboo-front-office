@@ -1,39 +1,51 @@
 <script>
-export default {
-};
+export default {};
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" >
-      <div class="container-fluid">
-        <router-link class="navbar-brand ms-2" :to="{name: 'home'}">
-          <font-awesome-icon :icon="['fas', 'house']" />
-        </router-link >
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <!-- eventuali router link -->
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <router-link class="navbar-brand ms-2" :to="{ name: 'home' }">
+        <font-awesome-icon :icon="['fas', 'house']" />
+      </router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- eventuali router link -->
+        </ul>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
       </div>
-    </nav>
+    </div>
+  </nav>
 </template>
 
-<style lang="scss">
-nav{
-    height: 80px;
-    position: fixed !important;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 10;
+<style lang="scss" scoped>
+nav {
+  height: 80px;
+  position: fixed !important;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
 
-    box-shadow: 3px 3px 3px 3px #fff;
+  box-shadow: 3px 3px 3px 3px #fff;
 }
 </style>
