@@ -38,11 +38,16 @@ export default {
 </script>
 
 <template>
-  <div class="restaurants-type">
+  <div id="type" class="restaurants-type">
     <div class="container-type-section">
       <h2 class="title-type-section">Che si mangia oggi?</h2>
-      <RestaurantList :restaurants="restaurants" />
-      <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
+      <div class="d-flex justify-content-center align-items-center">
+        <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
+      </div>
+      <RestaurantList :restaurants="restaurants" />  
+      <div class="d-flex justify-content-center">
+        <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
+      </div>
     </div>
   </div>
 </template>

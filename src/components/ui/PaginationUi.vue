@@ -25,7 +25,7 @@ export default {
           :class="{
             active: link.active,
           }"
-          href="#"
+          href="#type"
           v-html="link.label"
         ></a>
       </li>
@@ -33,4 +33,16 @@ export default {
   </nav>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pagination {
+  --bs-pagination-active-bg: #444 ;
+  --bs-pagination-active-border-color: #444 ;
+}
+.disabled {
+    background-color: rgba($color: #ffffff, $alpha: 0.1) !important; 
+}
+.page-link {
+  color: #444;
+}
+
+</style>
