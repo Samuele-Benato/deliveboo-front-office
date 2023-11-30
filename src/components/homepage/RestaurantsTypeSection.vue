@@ -4,19 +4,19 @@ import { store } from "../../data/store";
 // import { RouterView } from "vue-router";
 // import RestaurantList from "../restaurants/RestaurantList.vue";
 import RestaurantCard from "../restaurants/RestaurantCard.vue";
-import PaginationUi from "../ui/PaginationUi.vue";
+// import PaginationUi from "../ui/PaginationUi.vue";
 
 export default {
   data() {
     return {
       restaurants: [],
-      pagination: [],
+      // pagination: [],
       filteredRestaurants: [],
       types: [],
     };
   },
 
-  components: { PaginationUi, RestaurantCard },
+  components: {  RestaurantCard },
 
   methods: {
     fetchRestaurants() {
@@ -87,7 +87,7 @@ export default {
     <div class="container-type-section">
       <h2 class="title-type-section">Oggi ho proprio voglia di ...</h2>
 
-      <div class="d-flex justify-content-center align-items-center flex-wrap mt-4">
+      <div class="d-flex justify-content-center align-items-center flex-wrap my-4">
         <span
           class="m-2 badge-types"
           v-for="type in types"
@@ -98,19 +98,15 @@ export default {
         </span>
       </div>
 
-      <div class="d-flex justify-content-center align-items-center">
-        <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
-      </div>
-
       <div class="container">
           <div class="row">
             <RestaurantCard class="my-3 col-lg-6 col-xxl-4" v-for="restaurant in filteredRestaurants" :key="restaurant.id" :restaurant="restaurant"/>  
           </div>
       </div>
 
-      <div class="d-flex justify-content-center">
+      <!-- <div class="d-flex justify-content-center">
         <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
-      </div>
+      </div> -->
 
     </div>
   </div>

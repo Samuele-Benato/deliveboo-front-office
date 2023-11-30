@@ -8,7 +8,7 @@ export default {
 };
 </script>
 
-<template>
+<!-- <template>
   <nav aria-label="..." class="my-3">
     <ul class="pagination">
       <li
@@ -45,4 +45,4 @@ export default {
   color: #444;
 }
 
-</style>
+</style> -->
