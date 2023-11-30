@@ -132,9 +132,12 @@ export default {
   cursor: pointer;
 }
 .restaurants-type {
-  background-image: url("img/restaurants-type.jpg");
+  background-image: url("img/restaurant-type-background.jpeg");
   background-size: 50%;
+  background-size: cover;
   background-position: start;
+  background-attachment: fixed;
+  
   min-height: 50vh;
   height: 100%;
 
@@ -144,7 +147,7 @@ export default {
 }
 
 .container-type-section {
-  background-color: rgba($color: #000, $alpha: 0.8);
+  background-color: rgba($color: #000, $alpha: 0.7);
   padding: 0.5rem;
   width:100%;
   min-height: 50vh;
