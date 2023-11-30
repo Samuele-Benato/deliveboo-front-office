@@ -5,8 +5,9 @@ export default {};
 <template>
   <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-      <router-link class="navbar-brand ms-2" :to="{ name: 'home' }">
-        <font-awesome-icon :icon="['fas', 'house']" />
+      <router-link class="navbar-brand ms-2 d-flex align-items-center justify-content-center" :to="{ name: 'home' }">
+        <img class="logo" src="img/logo.png" alt="Logo"> 
+        <span class="ms-2 fw-bold">Deliveboo</span>
       </router-link>
       <button
         class="navbar-toggler"
@@ -47,5 +48,8 @@ nav {
   z-index: 10;
 
   box-shadow: 3px 3px 3px 3px #444;
+}
+.logo{
+  width: 50px;
 }
 </style>
