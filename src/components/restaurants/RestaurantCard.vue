@@ -32,7 +32,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
 ._area {
   font-family: "Cairo", sans-serif;
   color: #7c7671;
