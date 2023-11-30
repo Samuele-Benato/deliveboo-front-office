@@ -1,7 +1,6 @@
 <script>
 import axios from "axios";
 import { store } from "../../data/store";
-// import { RouterView } from "vue-router";
 // import RestaurantList from "../restaurants/RestaurantList.vue";
 import RestaurantCard from "../restaurants/RestaurantCard.vue";
 // import PaginationUi from "../ui/PaginationUi.vue";
@@ -148,6 +147,8 @@ export default {
   background-color: rgba($color: #000, $alpha: 0.8);
   padding: 0.5rem;
   width:100%;
+  min-height: 50vh;
+  height: 100%;
   padding-top: 5rem;
 }
 
