@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
-import AdvancedFilterType from "../pages/AdvancedFilterType.vue";
+import FilterType from "../components/homepage/FilterType.vue";
 
 const router = createRouter({
   // aggiungi history
@@ -16,7 +16,7 @@ const router = createRouter({
     {
       name: "advanced-filter",
       path: "/advanced-filter",
-      component: AdvancedFilterType,
+      component: FilterType,
     },
   ],
 });

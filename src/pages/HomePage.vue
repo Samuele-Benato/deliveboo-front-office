@@ -1,20 +1,20 @@
 <script>
 import JumbotronHomepage from "../components/homepage/JumbotronHomepage.vue";
 import RestaurantsTypeSection from "../components/homepage/RestaurantsTypeSection.vue";
-import AdvancedFilterType from "./AdvancedFilterType.vue";
+// import FilterType from "../components/homepage/FilterType.vue";
 
 export default {
   components: {
     JumbotronHomepage,
     RestaurantsTypeSection,
-    AdvancedFilterType,
+    // FilterType,
   },
 };
 </script>
 
 <template>
   <JumbotronHomepage />
-  <AdvancedFilterType />
+  <!-- <FilterType /> -->
   <RestaurantsTypeSection />
 </template>
 
