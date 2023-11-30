@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
-// import RestaurantMenu from "../pages/RestaurantMenu.vue";
-import PlateList from "../components/plates/PlateList.vue";
+import RestaurantMenu from "../pages/RestaurantMenu.vue";
 
 const router = createRouter({
   // aggiungi history
@@ -13,16 +12,11 @@ const router = createRouter({
       path: "/",
       component: HomePage,
     },
-    //   {
-    //     name : 'restaurant-menu',
-    //     path: '/restaurant/:id',
-    //     component: RestaurantMenu,
-    //  },
 
     {
       name: "plates-by-restaurant",
       path: "/plates-by-restaurant/:restaurantId",
-      component: PlateList,
+      component: RestaurantMenu,
     },
   ],
 });
