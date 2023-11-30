@@ -24,24 +24,25 @@ export default {
           </span>
         </div>
 
-        <div class="_detail">
-          <font-awesome-icon :icon="['fas', 'phone']" />
-          <span class="ms-2">{{ restaurant.phone }}</span>
-        </div>
-
-        <div class="_detail">
+       
           <router-link 
+          class="menu-tag"
             :to="{
             name: 'plates-by-restaurant',
             params:{
                 restaurantId:restaurant.id,
             },
             }" >
-            <font-awesome-icon :icon="['fas', 'phone']" />
-            <span class="ms-2">{{ restaurant.phone }}</span>
+            <div class="menu">
+              Menù <font-awesome-icon :icon="['fas', 'utensils']" />
+            </div>
           </router-link>
-        </div>
         
+
+        <div class="_detail">
+          <font-awesome-icon :icon="['fas', 'phone']" />
+          <span class="ms-2">{{ restaurant.phone }}</span>
+        </div>        
       </div>
     </div>
   </div>
@@ -109,5 +110,21 @@ export default {
   color: #262424;
   font-weight: bold;
   border-radius: 10px;
+}
+
+.menu {
+  margin-top: 10px;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.menu:hover{
+    transform: scale(1.5);
+  }
+.menu-tag {
+  text-decoration: none;
+  background-color: #262424;
+  color:#e6d7cc ;
 }
 </style>
