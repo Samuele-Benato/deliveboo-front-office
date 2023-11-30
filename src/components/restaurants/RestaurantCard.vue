@@ -9,7 +9,7 @@ export default {
 <template>
   <div class="_area text-center">
     <div class="_card">
-      <img :src="restaurant.image" class=" _img" />
+      <img :src="restaurant.image" class="_img" />
       <div class="_card_detail text-left">
         <h4>{{ restaurant.name }}</h4>
         <p>
@@ -17,11 +17,9 @@ export default {
           <span class="ms-2">{{ restaurant.address }}</span>
         </p>
         <div class="_type">
-          
           <span class="fw-bold" v-for="type in restaurant.types" :key="type.id">
             {{ type.name }}
           </span>
-
         </div>
         <div class="_detail">
           <font-awesome-icon :icon="['fas', 'phone']" />
@@ -54,7 +52,6 @@ export default {
   border-radius: 10px;
   width: 350px;
   height: 250px;
-
 }
 
 ._card_detail {
