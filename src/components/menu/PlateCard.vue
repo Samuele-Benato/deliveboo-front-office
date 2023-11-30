@@ -1,8 +1,8 @@
 <script>
 export default {
-//   props: {
-//     plate: Object,
-//   },
+  props: {
+    plate: Object,
+  },
 };
 </script>
 
@@ -12,13 +12,13 @@ export default {
     <div class="row">
         <div class="details-container col-6">
             <div class="plate-details">	
-                <h1>NOME PIATTO</h1>
+                <h1>{{ plate.name }}</h1>
                 <p class="information">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus ipsa sed labore veniam suscipit vitae exercitationem, neque pariatur ea fugiat sint hic ut ad inventore distinctio corrupti! Perspiciatis, laborum fuga.
+                    {{plate.description}}
                 </p>		
                 <div class="control ">
                     <button class="btn">
-                        <span class="price">$25</span>
+                        <span class="price">{{plate.price}} $</span>
                         <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
                         <span class="buy">Aggiungi</span>
                     </button>
@@ -27,17 +27,10 @@ export default {
         </div>
         <div class="image-container col-6">
             <div class="plate-image">
-                <img src="" alt="Plate image">
+                <img :src="plate.image" alt="Plate image">
                 <div class="info">
                     <h2> Ingredienti</h2>
-                    <ul>
-                        <li class="fw-bold">Pomodoro</li>
-                        <li class="fw-bold">Pomodoro</li>
-                        <li class="fw-bold">Pomodoro</li>
-                        <li class="fw-bold">Pomodoro</li>
-                        <li class="fw-bold">Pomodoro</li>
-                        <li class="fw-bold">Pomodoro</li>
-                    </ul>
+                    <div class="fw-bold ps-3">{{plate.ingredients}}</div> 
                 </div>
             </div>
         </div>
@@ -48,7 +41,7 @@ export default {
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 .plate-container{
-    box-shadow: 0 15px 30px 1px grey;
+    box-shadow: 0 1px 20px 1px grey;
 	background: rgba(#333, 0.90);
     border-radius: 5px;
     width: 100%;
