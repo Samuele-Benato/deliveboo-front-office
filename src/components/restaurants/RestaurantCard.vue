@@ -1,4 +1,5 @@
 <script>
+import { RouterView } from "vue-router";
 export default {
   props: {
     restaurant: Object,
@@ -16,15 +17,31 @@ export default {
           <font-awesome-icon :icon="['fas', 'location-dot']" />
           <span class="ms-2">{{ restaurant.address }}</span>
         </p>
+
         <div class="_type">
           <span class="fw-bold" v-for="type in restaurant.types" :key="type.id">
             {{ type.name }}
           </span>
         </div>
+
         <div class="_detail">
           <font-awesome-icon :icon="['fas', 'phone']" />
           <span class="ms-2">{{ restaurant.phone }}</span>
         </div>
+
+        <div class="_detail">
+          <router-link 
+            :to="{
+            name: 'plates-by-restaurant',
+            params:{
+                restaurantId:restaurant.id,
+            },
+            }" >
+            <font-awesome-icon :icon="['fas', 'phone']" />
+            <span class="ms-2">{{ restaurant.phone }}</span>
+          </router-link>
+        </div>
+        
       </div>
     </div>
   </div>
