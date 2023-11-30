@@ -1,41 +1,41 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
-import axios from "axios";
-import { store } from "../../data/store";
+// // import MyComponent from "./components/MyComponent.vue";
+// import axios from "axios";
+// import { store } from "../../data/store";
 
-export default {
-  data() {
-    return {
-      plates: [],
-    };
-  },
+// export default {
+//   data() {
+//     return {
+//       plates: [],
+//     };
+//   },
 
-  // components: {
-  //   MyComponent,
-  // },
+//   // components: {
+//   //   MyComponent,
+//   // },
 
-  methods: {
-    fetchPlates() {
-      axios
-        .get(
-          store.api.baseUrl +
-            "plates-by-restaurant/" +
-            this.$route.params.restaurantId
-        )
-        .then((response) => {
-          console.log(response.data); // Aggiungi questa riga per vedere cosa restituisce la chiamata API
-          this.plates = response.data.data;
-        })
-        .catch((error) => {
-          console.error("Error fetching plates:", error);
-        });
-    },
-  },
+//   methods: {
+//     fetchPlates() {
+//       axios
+//         .get(
+//           store.api.baseUrl +
+//             "plates-by-restaurant/" +
+//             this.$route.params.restaurantId
+//         )
+//         .then((response) => {
+//           console.log(response.data); // Aggiungi questa riga per vedere cosa restituisce la chiamata API
+//           this.plates = response.data.data;
+//         })
+//         .catch((error) => {
+//           console.error("Error fetching plates:", error);
+//         });
+//     },
+//   },
 
-  created() {
-    this.fetchPlates();
-  },
-};
+//   created() {
+//     this.fetchPlates();
+//   },
+// };
 </script>
 
 <template>
