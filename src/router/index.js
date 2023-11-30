@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
 // import RestaurantMenu from "../pages/RestaurantMenu.vue";
-
-// import FilterType from "../components/homepage/FilterType.vue";
 import PlateList from "../components/plates/PlateList.vue";
 
 const router = createRouter({
@@ -20,12 +18,6 @@ const router = createRouter({
     //     path: '/restaurant/:id',
     //     component: RestaurantMenu,
     //  },
-
-    {
-      name: "advanced-filter",
-      path: "/advanced-filter",
-      component: FilterType,
-    },
 
     {
       name: "plates-by-restaurant",
