@@ -155,5 +155,6 @@ export default {
   text-align: center;
   color: #d7d3d3;
   font-weight: 700;
+  font-size: 3rem;
 }
 </style>
