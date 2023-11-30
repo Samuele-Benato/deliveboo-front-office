@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../pages/HomePage.vue";
-import FilterType from "../components/homepage/FilterType.vue";
+// import RestaurantMenu from "../pages/RestaurantMenu.vue";
+
 
 const router = createRouter({
   // aggiungi history
@@ -12,12 +13,11 @@ const router = createRouter({
       path: "/",
       component: HomePage,
     },
-
-    {
-      name: "advanced-filter",
-      path: "/advanced-filter",
-      component: FilterType,
-    },
+  //   {
+  //     name : 'restaurant-menu',
+  //     path: '/restaurant/:id',
+  //     component: RestaurantMenu,
+  //  },
   ],
 });
 
