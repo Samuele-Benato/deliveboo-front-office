@@ -1,8 +1,11 @@
 <script>
 import axios from "axios";
-import { store } from "../data/store";
+</script>
 
-import RestaurantCard from "../components/restaurants/RestaurantCard.vue";
+<!-- <script>
+import { store } from "../../data/store";
+
+import RestaurantCard from "../restaurants/RestaurantCard.vue";
 
 export default {
   data() {
@@ -65,7 +68,7 @@ export default {
 </script>
 
 <template>
-  <!-- DA AGGIUSTARE GRAFICAMENTE -->
+ DA AGGIUSTARE GRAFICAMENTE
 
   <div class="container">
     <h1 class="my-5">Ricerca avanzata</h1>
@@ -81,6 +84,7 @@ export default {
         >
           {{ type.name }} <br />
         </span>
+
       </div>
       <div class="col-9">
         <div class="row row-cols-2 g-3">
@@ -103,4 +107,4 @@ export default {
 .clickable {
   cursor: pointer;
 }
-</style>
+</style> -->
