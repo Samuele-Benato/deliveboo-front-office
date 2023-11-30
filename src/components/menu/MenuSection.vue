@@ -45,26 +45,21 @@ export default {
 
 <template>
   <div class="restaurants-menu">
-    <div class="container-menu">
-      <div class="container">
-        <h2 class="title-menu">Il nostro ristorante</h2>
-        <div
-          class="text-center my-3"
+      <div
           v-for="(plate, index) in plates"
           :key="index"
         >
-          <h3 v-if="detailRestaurant(plate, index)">
-            <h4>{{ plate.restaurant.name }}</h4>
-            <h4>{{ plate.restaurant.address }}</h4>
-            <h4>{{ plate.restaurant.description }}</h4>
-            <h4>{{ plate.restaurant.phone }}</h4>
-          </h3>
+          <div v-if="detailRestaurant(plate, index)" class="restaurant-detail">
+            <h4 class="restaurant-title">Grazie per aver scelto {{ plate.restaurant.name }}</h4>
+            <span class="restaurant-address"><font-awesome-icon :icon="['fas', 'location-dot']" /><span class="ms-2">{{ plate.restaurant.address }}</span></span>
+            <span class="restaurant-phone"><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2">+{{ plate.restaurant.phone }}</span></span>
+          </div>
         </div>
-        <h2 class="title-menu">Il nostro menù</h2>
+    <div class="container-menu">
+        <h2 class="title-menu">Il nostro menù :</h2>
         <div class="row">
-          <PlateCard v-for="plate in plates" :key="plate.id" :plate="plate" />
+          <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -73,25 +68,68 @@ export default {
 .restaurants-menu {
   background-image: url("img/menu-background.jpg");
   background-size: 100%;
+  background-size: cover;
   background-position: start;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   min-height: 50vh;
   height: 100%;
 }
 .container-menu {
   background-color: rgba($color: #000, $alpha: 0.8);
-  padding: 0.5rem;
   width: 100%;
+  min-width: 540px;
   min-height: 100vh;
   height: 100%;
-  padding-top: 5rem;
+  padding-top: 1rem;
+  padding-left: 3rem;
 }
 
 .title-menu {
-  text-align: center;
   color: #d7d3d3;
   font-weight: 700;
   font-size: 5rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+.restaurant-detail{
+ padding-bottom: 20px;
+  text-align: center;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  padding-top: 7rem;
+}
+.restaurant-title{
+  color: #d7d3d3;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.restaurant-address,
+.restaurant-phone{
+  color: #d7d3d3;
+  font-size: 1.2rem;
+  display: block;
+}
+
+
+/* Schermi con larghezza inferiore a 993px */
+@media only screen and (max-width: 992px) {
+  .title-menu {
+  font-size: 4rem;
+}
+.restaurant-title{
+  font-size: 1.5rem;
+}
+.restaurant-address,
+.restaurant-phone{
+  font-size: 1rem;
+}
+}
+
+@media (max-width: 768px) {
+  .title-menu {
+  font-size: 3.5rem;
+}
+.container-menu {
+  padding-right: 3rem;
+}
 }
 </style>
