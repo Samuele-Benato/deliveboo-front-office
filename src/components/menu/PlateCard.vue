@@ -52,6 +52,9 @@ export default {
     margin: 2em auto;
     height: 350px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   
     .plate-details {
       position: relative;
