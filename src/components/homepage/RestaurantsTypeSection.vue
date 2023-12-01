@@ -144,6 +144,7 @@ export default {
   background-position: start;
   background-attachment: fixed;
   
+  position: relative;
   min-height: 50vh;
   height: 100%;
 
@@ -152,13 +153,24 @@ export default {
   align-items: start;
 }
 
+.restaurants-type:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 90%;
+  background: linear-gradient(to bottom, rgba(68, 68, 68, 1) 10%, rgba(68, 68, 68, 0.7) 30%, rgba(68, 68, 68, 0.4) 60%, rgba(68, 68, 68, 0) 100%);
+  opacity: 1;
+}
+
 .container-type-section {
   background-color: rgba($color: #000, $alpha: 0.7);
   padding: 0.5rem;
   width:100%;
   min-height: 50vh;
   height: 100%;
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 
 .title-type-section {
