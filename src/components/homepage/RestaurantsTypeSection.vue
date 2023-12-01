@@ -97,7 +97,13 @@ export default {
         </span>
       </div>
 
-      <div class="container">
+      <div v-if="filteredRestaurants.length === 0">
+        <p class="title-type-section">
+          Nessun ristorante disponibile per la tipologia selezionata.
+        </p>
+      </div>
+
+      <div v-else  class="container">
           <div class="row">
             <RestaurantCard class="my-3 col-lg-6 col-xxl-4" v-for="restaurant in filteredRestaurants" :key="restaurant.id" :restaurant="restaurant"/>  
           </div>
