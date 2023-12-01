@@ -185,8 +185,9 @@ export default {
 .plate-image:hover .info{transform: translateX(0);}
 .info ul li{transition: 0.3s ease;}
 .info ul li:hover{transform: translateX(50px) scale(1.3);}
+.plate-image:hover img{opacity: 0.3;}
 .plate-image:hover img {transition: all 0.3s ease-out;}
-.plate-image:hover img {transform: scale(1.2, 1.2);}
+.plate-image:hover img {transform: scale(1.1, 1.1);}
 
 @media only screen and (min-width: 1340px) {
     .plate-container {
