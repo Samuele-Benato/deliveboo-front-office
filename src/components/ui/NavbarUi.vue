@@ -47,7 +47,7 @@ nav {
   top: 0;
   z-index: 10;
 
-  box-shadow: 3px 3px 3px 3px #444;
+  box-shadow: 3px 3px 3px 3px #222;
 }
 .logo{
   width: 50px;
