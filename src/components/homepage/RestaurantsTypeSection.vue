@@ -159,7 +159,7 @@ export default {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 90%;
+  bottom: 95%;
   background: linear-gradient(to bottom, rgba(68, 68, 68, 1) 10%, rgba(68, 68, 68, 0.7) 30%, rgba(68, 68, 68, 0.4) 60%, rgba(68, 68, 68, 0) 100%);
   opacity: 1;
 }
@@ -170,7 +170,7 @@ export default {
   width:100%;
   min-height: 50vh;
   height: 100%;
-  padding-top: 7rem;
+  padding: 7rem 0;
 }
 
 .title-type-section {
