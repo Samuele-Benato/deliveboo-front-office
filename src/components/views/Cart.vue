@@ -8,7 +8,7 @@
               <div class="col-lg-7">
                 <h5 class="mb-3">
                   <router-link :to="{ name: 'home' }" class="text-body"
-                    ><i class="fas fa-long-arrow-alt-left me-2"></i>Continue
+                    ><i class="fas fa-long-arrow-alt-left me-2"></i>Continua
                     shopping</router-link
                   >
                 </h5>
@@ -52,23 +52,17 @@
                       <div class="d-flex flex-row align-items-center">
                         <div>
                           <h5 class="mb-0">
-                            <i class="bi bi-currency-dollar"></i
-                            >{{ calculateItemTotal(plate) }}
+                            <i class="me-1">€</i>{{ calculateItemTotal(plate) }}
                           </h5>
-                          <small
-                            v-if="plate.hasDiscount"
-                            class="text-muted text-decoration-line-through"
-                            ><i class="bi bi-currency-dollar"></i
-                            >{{ plate.price }}</small
-                          >
                         </div>
                         <a
                           role="button"
                           @click="removeItem(plate)"
                           class="ms-4"
-                          style="color: #cecece"
-                          ><i class="fa-shopping-cart"></i
-                        ></a>
+                          style="color: white"
+                        >
+                          <i></i>🗑️
+                        </a>
                       </div>
                     </div>
                   </div>

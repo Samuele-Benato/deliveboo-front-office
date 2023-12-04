@@ -41,7 +41,7 @@ export default {
             aria-current="page"
             :to="{ name: 'Cart' }"
           >
-            <i class="bi bi-cart3 h4"></i>
+            <i class="h2">🛒</i>
             <span
               v-if="$store.state.cart.length > 0"
               class="align-items-center justify-content-center translate-middle badge rounded-pill bg-secondary"
