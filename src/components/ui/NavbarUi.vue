@@ -1,12 +1,25 @@
 <script>
-export default {};
+export default {
+  props: {
+    cartItemCount: {
+      type: Number,
+      default: 0,
+    },
+  },
+};
 </script>
 
 <template>
-  <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+  <nav
+    class="navbar bg-dark navbar-expand-lg bg-body-tertiary"
+    data-bs-theme="dark"
+  >
     <div class="container-fluid">
-      <router-link class="navbar-brand ms-2 d-flex align-items-center justify-content-center" :to="{ name: 'home' }">
-        <img class="logo" src="img/logo.png" alt="Logo"> 
+      <router-link
+        class="navbar-brand ms-2 d-flex align-items-center justify-content-center"
+        :to="{ name: 'home' }"
+      >
+        <img class="logo" src="img/logo.png" alt="Logo" />
         <span class="ms-2 fw-bold">Deliveboo</span>
       </router-link>
       <button
@@ -21,18 +34,22 @@ export default {};
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- eventuali router link -->
-        </ul>
-        <!-- <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
+        <li class="nav-item me-3">
+          <router-link
+            class="nav-link"
+            :class="$route.name == 'Cart' ? 'active' : ''"
+            aria-current="page"
+            :to="{ name: 'Cart' }"
+          >
+            <i class="bi bi-cart3 h4"></i>
+            <span
+              v-if="$store.state.cart.length > 0"
+              class="align-items-center justify-content-center translate-middle badge rounded-pill bg-secondary"
+            >
+              {{ $store.state.cart.length }}
+            </span>
+          </router-link>
+        </li>
       </div>
     </div>
   </nav>
@@ -49,7 +66,7 @@ nav {
 
   box-shadow: 3px 3px 3px 3px #222;
 }
-.logo{
+.logo {
   width: 50px;
 }
 </style>

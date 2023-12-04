@@ -15,7 +15,7 @@ export default {
     };
   },
 
-  components: {  RestaurantCard },
+  components: { RestaurantCard },
 
   methods: {
     fetchRestaurants() {
@@ -86,14 +86,21 @@ export default {
     <div class="container-type-section">
       <h2 class="title-type-section">Oggi ho proprio voglia di ...</h2>
 
-      <div class="d-flex justify-content-center align-items-center flex-wrap my-4">
+      <div
+        class="d-flex justify-content-center align-items-center flex-wrap my-4"
+      >
         <span
           class="m-2 badge-types"
           v-for="type in types"
           :key="type.id"
-          :class="{ disabled: type.active}"
-          @click="toggleType(type)">
-          {{ type.name }} 
+          :class="{
+            disabled: !type.active,
+            clickable: !type.active,
+            'green-text': type.active,
+          }"
+          @click="toggleType(type)"
+        >
+          {{ type.name }}
         </span>
       </div>
 
@@ -103,23 +110,26 @@ export default {
         </p>
       </div>
 
-      <div v-else  class="container">
-          <div class="row">
-            <RestaurantCard class="my-3 col-lg-6 col-xxl-4" v-for="restaurant in filteredRestaurants" :key="restaurant.id" :restaurant="restaurant"/>  
-          </div>
+      <div v-else class="container">
+        <div class="row">
+          <RestaurantCard
+            class="my-3 col-lg-6 col-xxl-4"
+            v-for="restaurant in filteredRestaurants"
+            :key="restaurant.id"
+            :restaurant="restaurant"
+          />
+        </div>
       </div>
 
       <!-- <div class="d-flex justify-content-center">
         <PaginationUi :pagination="pagination" @change-page="fetchRestaurants" />
       </div> -->
-
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
-.badge-types{
+.badge-types {
   background-color: rgba($color: #d7d3d3, $alpha: 0.8);
   padding: 5px 10px;
   color: #1f1f1f;
@@ -127,14 +137,20 @@ export default {
   border-radius: 5px;
 }
 
-.badge-types:hover{
+.green-text {
+  color: green;
+}
+
+.badge-types:hover {
   transform: scale(1.1);
   transition: 0.2s linear;
   box-shadow: 4px 4px 4px #d7d3d3;
 }
+
 .disabled {
-  box-shadow: 4px 4px 4px  #d7d3d3 !important;
+  box-shadow: 4px 4px 4px #d7d3d3 !important;
 }
+
 .clickable {
   cursor: pointer;
 }
@@ -144,7 +160,7 @@ export default {
   background-size: cover;
   background-position: start;
   background-attachment: fixed;
-  
+
   position: relative;
   min-height: 50vh;
   height: 100%;
@@ -155,20 +171,26 @@ export default {
 }
 
 .restaurants-type:before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 95%;
-  background: linear-gradient(to bottom, rgba(68, 68, 68, 1) 10%, rgba(68, 68, 68, 0.7) 30%, rgba(68, 68, 68, 0.4) 60%, rgba(68, 68, 68, 0) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(68, 68, 68, 1) 10%,
+    rgba(68, 68, 68, 0.7) 30%,
+    rgba(68, 68, 68, 0.4) 60%,
+    rgba(68, 68, 68, 0) 100%
+  );
   opacity: 1;
 }
 
 .container-type-section {
   background-color: rgba($color: #000, $alpha: 0.7);
   padding: 0.5rem;
-  width:100%;
+  width: 100%;
   min-height: 50vh;
   height: 100%;
   padding: 7rem 0;
