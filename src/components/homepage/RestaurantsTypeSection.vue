@@ -129,6 +129,7 @@ export default {
 
 .badge-types:hover{
   transform: scale(1.1);
+  transition: 0.2s linear;
   box-shadow: 4px 4px 4px #d7d3d3;
 }
 .disabled {
