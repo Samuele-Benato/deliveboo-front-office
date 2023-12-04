@@ -1,5 +1,5 @@
 <script>
-import MenuSection from "../components/menu/MenuSection.vue";
+import MenuSection from "../components/menupage/MenuSection.vue";
 
 export default {
   components: {
