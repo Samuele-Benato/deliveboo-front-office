@@ -6,7 +6,8 @@
         </div>
         <div class="row one">
             <div class="card">
-                <img src="/img/team/samuele.png" alt="Samuele Benato">
+                <img class="samuele-white" src="/img/team/samuele-white.jpg" alt="Samuele Benato">
+                <img class="samuele-black" src="/img/team/samuele.png" alt="Samuele Benato">
                 <div class="info">
                     <h2>Samuele Benato</h2>
                     <p>Mi definisco un ragazzo caparbio ed intraprendente, motivarmi e motivare è il mio punto di forza.</p>
@@ -197,6 +198,10 @@ p {
     display: none;
 }
 
+.samuele-white{
+    display: none;
+}
+
 @media only screen and (max-width: 992px) {
 .mobile{
     display: block;
@@ -209,8 +214,13 @@ p {
 }
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 939px) {
+    .samuele-white{
+    display: block;
+}
+.samuele-black{
+    display: none;
+}
 }
 
 </style>
