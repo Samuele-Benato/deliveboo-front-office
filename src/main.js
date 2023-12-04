@@ -13,11 +13,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
-import { faHouse ,faPhone, faLocationDot, faUtensils, faArrowRight, faAddressCard, faLink} from '@fortawesome/free-solid-svg-icons'
+import { faHouse ,faPhone, faLocationDot, faUtensils, faArrowRight, faAddressCard, faLink, faUserTie} from '@fortawesome/free-solid-svg-icons'
 /* import specific brand icons */
-import { faLinkedinIn, faVuejs, faLaravel } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faVuejs, faLaravel, faGithub } from '@fortawesome/free-brands-svg-icons';
 /* add icons to the library */
-library.add(faHouse,faPhone , faLocationDot, faUtensils ,faArrowRight, faAddressCard, faLink, faLinkedinIn, faVuejs, faLaravel)
+library.add(faHouse,faPhone , faLocationDot, faUtensils ,faArrowRight, faAddressCard, faLink, faUserTie, faLinkedinIn, faVuejs, faLaravel, faGithub)
 
 import App from './App.vue'
 
