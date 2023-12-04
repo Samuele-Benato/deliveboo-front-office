@@ -63,7 +63,8 @@ export default {
 }
 
 ._card:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
+  transition: 0.2s linear;
 }
 
 ._img {
@@ -121,6 +122,7 @@ export default {
 }
 .menu:hover{
     transform: scale(1.5);
+    transition: 0.3s linear;
   }
 .menu-tag {
   text-decoration: none;
