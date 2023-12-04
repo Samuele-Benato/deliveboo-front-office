@@ -1,6 +1,5 @@
 <script>
 import JumbotronHomepage from "../components/homepage/JumbotronHomepage.vue";
-import NewEntry from "../components/homepage/NewEntry.vue";
 import RestaurantsTypeSection from "../components/homepage/RestaurantsTypeSection.vue";
 // import FilterType from "../components/homepage/FilterType.vue";
 
@@ -8,7 +7,6 @@ import RestaurantsTypeSection from "../components/homepage/RestaurantsTypeSectio
 export default {
   components: {
     JumbotronHomepage,
-    NewEntry,
     RestaurantsTypeSection,
     // FilterType,
   },
@@ -17,7 +15,6 @@ export default {
 
 <template>
   <JumbotronHomepage />
-  <NewEntry/>
   <!-- <FilterType /> -->
   <RestaurantsTypeSection />
 </template>
