@@ -100,6 +100,10 @@
   font-size: 1rem;
   display: block;
 }
+.links:hover{
+  transform: scale(1.1);
+  transition: 0.2s linear;
+}
 .links a{
   text-decoration: none;
   color: #dadada;
