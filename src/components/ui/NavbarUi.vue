@@ -22,6 +22,14 @@ export default {};
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ms-auto">
+            <router-link
+              class="nav-link"
+              aria-current="page"
+              :to="{ name: 'about' }">
+              Il nostro Team
+            </router-link>
+          </li>
           <!-- eventuali router link -->
         </ul>
         <!-- <form class="d-flex" role="search">
