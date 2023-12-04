@@ -65,7 +65,7 @@
   	 	</div>
   	</div>
   </footer>
-  <div class="copyright">Copyright © 2023 Boolean team 5. Tutti i diritti riservati.</div>
+  <div class="copyright">Copyright © 2024 Boolean classe 103 team 5. Tutti i diritti riservati.</div>
 </div>
 </template>
 

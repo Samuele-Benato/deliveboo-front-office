@@ -44,19 +44,18 @@ export default {
 </script>
 
 <template>
-  <div class="restaurants-menu">
-      <div
+  <div class="menu-background">
+        <div
           v-for="(plate, index) in plates"
-          :key="index"
-        >
+          :key="index">
           <div v-if="detailRestaurant(plate, index)" class="restaurant-detail">
             <h4 class="restaurant-title">Grazie per aver scelto {{ plate.restaurant.name }}</h4>
             <span class="restaurant-address"><font-awesome-icon :icon="['fas', 'location-dot']" /><span class="ms-2">{{ plate.restaurant.address }}</span></span>
             <span class="restaurant-phone"><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2">+{{ plate.restaurant.phone }}</span></span>
           </div>
         </div>
-    <div class="container-menu">
-        <h2 class="title-menu">Il nostro menù :</h2>
+    <div class="menu-container">
+        <h2 class="menu-title">Il nostro menù :</h2>
         <div class="row">
           <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
         </div>
@@ -65,7 +64,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.restaurants-menu {
+.menu-background {
   background-image: url("img/menu-background.jpg");
   background-size: 100%;
   background-size: cover;
@@ -75,7 +74,7 @@ export default {
   min-height: 50vh;
   height: 100%;
 }
-.container-menu {
+.menu-container {
   background-color: rgba($color: #000, $alpha: 0.8);
   width: 100%;
   min-width: 540px;
@@ -85,7 +84,7 @@ export default {
   padding-left: 3rem;
 }
 
-.title-menu {
+.menu-title {
   color: #d7d3d3;
   font-weight: 700;
   font-size: 5rem;
