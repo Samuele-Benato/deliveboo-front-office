@@ -23,7 +23,7 @@
             </div>
 
             <div class="card">
-                <img src="" alt="Pasquale Cicinelli">
+                <img src="/img/team/pasquale.webp" alt="Pasquale Cicinelli">
                 <div class="info">
                     <h2>Pasquale Cicinelli</h2>
                     <p>Sono un ragazzo che persiste con forza, ma mai si arrende: la determinazione è la chiave del mio successo.</p>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="card">
-                <img src="" alt="Alessandro Angelelli">
+                <img src="/img/team/alessandro.webp" alt="Alessandro Angelelli">
                 <div class="info">
                     <h2>Alessandro Angelelli</h2>
                     <p>Pronto a contribuire attivamente e con successo a nuove sfide professionali.</p>
@@ -64,7 +64,7 @@
                 <img src="/img/team/vincenzo.webp" alt="Vincenzo Marcello">
                 <div class="info">
                     <h2>Vincenzo Marcello</h2>
-                    <p>Lorem Ipsum is simply dummy text from the printing and typesetting industry</p>
+                    <p>Internet ha cambiato il mondo, nel mio piccolo voglio contribuire a questo cambiamento !</p>
                     <div class="social-links">  
                         <a href="https://www.linkedin.com/in/vincenzo-marcello-1552972a0/"><font-awesome-icon :icon="['fab', 'linkedin-in']" /></a>
                         <a href="https://github.com/VincenzoMarcello"><font-awesome-icon :icon="['fab', 'github']" /></a>
