@@ -1,7 +1,7 @@
 <template>
 <div class="footer-background">
   <footer class="footer">
-  	 <div class="container">
+  	<div class="container">
   	 	<div class="row">
         <div class="col-3">
           <div class="center-content ">
@@ -63,7 +63,7 @@
           </p>
         </div>
   	 	</div>
-  	 </div>
+  	</div>
   </footer>
 </div>
 </template>
@@ -73,7 +73,6 @@
   background-image: url("img/footer-background.jpg");
   background-size: cover;
   background-position: center;
-  
   background-repeat: no-repeat;
 }
 .footer{
