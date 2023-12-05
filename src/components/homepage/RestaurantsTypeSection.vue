@@ -99,7 +99,7 @@ export default {
 
       <div v-if="filteredRestaurants.length === 0">
         <p class="title-type-section">
-          Nessun ristorante disponibile per la tipologia selezionata.
+          Nessun ristorante disponibile per le tipologie selezionate.
         </p>
       </div>
 
@@ -133,7 +133,9 @@ export default {
   box-shadow: 4px 4px 4px #d7d3d3;
 }
 .disabled {
-  box-shadow: 4px 4px 4px  #d7d3d3 !important;
+  box-shadow: 4px 4px 4px  #1f1f1f !important;
+  background-color: #1f1f1f;
+  color:#d7d3d3 ;
 }
 .clickable {
   cursor: pointer;
