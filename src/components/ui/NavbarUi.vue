@@ -22,36 +22,37 @@ export default {
         <img class="logo" src="img/logo.png" alt="Logo" />
         <span class="ms-2 fw-bold">Deliveboo</span>
       </router-link>
-      <!-- <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <div class="navbar-nav ms-auto">
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"></div> -->
-        <li class="nav-item me-3">
-          <router-link
-            class="nav-link"
-            :class="$route.name == 'Cart' ? 'active' : ''"
-            aria-current="page"
-            :to="{ name: 'Cart' }"
-          >
-            <i class="h2">🛒</i>
-            <span
-              v-if="$store.state.cart.length > 0"
-              class="align-items-center justify-content-center translate-middle badge rounded-pill bg-secondary"
-            >
-              {{ $store.state.cart.length }}
-            </span>
-          </router-link>
-        </li>
-      </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 align-items-center justify-content-between">
+              <div>
+                <li class="nav-item">
+                  <router-link
+                    class="nav-link"
+                    aria-current="page"
+                    :to="{ name: 'about' }">
+                    Il nostro Team
+                  </router-link>
+                </li>
+              </div>
+              <div>
+                <li class="nav-item">
+                  <router-link
+                    class="nav-link float-right"
+                    :class="$route.name == 'Cart' ? 'active' : ''"
+                    aria-current="page"
+                    :to="{ name: 'Cart' }"
+                  >
+                    <i class="h2">🛒</i>
+                    <span class="align-items-center justify-content-center translate-middle badge rounded-pill bg-secondary">
+                      <!-- {{ $store.state.cart.length }} -->
+                    </span>
+                  </router-link>
+                </li>
+              </div>
+            <!-- eventuali router link -->
+          </ul>
+        </div>
     </div>
   </nav>
 </template>
@@ -71,3 +72,4 @@ nav {
   width: 50px;
 }
 </style>
+<!-- v-if="$store.state.cart.length > 0" -->

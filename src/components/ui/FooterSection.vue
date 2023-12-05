@@ -10,9 +10,7 @@
             </div>
             <div class="center-content">
               <span class="links mt-2">
-                <a
-                  href="https://github.com/Samuele-Benato/deliveboo-front-office/graphs/contributors"
-                >
+                <a href="https://github.com/Samuele-Benato/deliveboo-front-office/graphs/contributors">
                   <font-awesome-icon :icon="['fas', 'arrow-right']" />
                   Frontend
                   <font-awesome-icon :icon="['fab', 'vuejs']" />
@@ -21,9 +19,7 @@
             </div>
             <div class="center-content">
               <span class="links">
-                <a
-                  href="https://github.com/Samuele-Benato/deliveboo-back-office/graphs/contributors"
-                >
+                <a href="https://github.com/Samuele-Benato/deliveboo-back-office/graphs/contributors">
                   <font-awesome-icon :icon="['fas', 'arrow-right']" />
                   Backend
                   <font-awesome-icon :icon="['fab', 'laravel']" />
@@ -59,62 +55,24 @@
             <p class="footer-description">
               Questo progetto rappresenta la conclusione del nostro percorso
               presso
-              <a
-                class="description-link"
-                href="https://boolean.careers/corso/full-stack-web-development"
-              >
+              <a class="description-link" href="https://boolean.careers/corso/full-stack-web-development">
                 <font-awesome-icon :icon="['fas', 'link']" />
-                <span class="ms-1">Boolean Carrers</span>
+                <span class="ms-1">Boolean Careers</span>
               </a>
               una prestigiosa accademia tech che permette a chiunque di
-              approcciarsi al web developement partendo dalla creazione di
-              pagine web in HTML e CSS, si progredisce all'aggiunta di
+              approcciarsi al web development partendo dalla creazione di
+              pagine web in HTML and CSS, si progredisce all'aggiunta di
               interattività con JavaScript, gestione di database con MySQL e
               l'utilizzo di framework come Laravel e VueJs.
             </p>
           </div>
-  	 		</div>
-        <div class="col-md-3 col-6">
-          <h3 class="col-title">Quick Links :</h3>
-          <ul class="list-group">
-            <li class="links ">
-              <a href="#">
-                <font-awesome-icon :icon="['fas', 'house']" />
-                Home
-              </a>
-            </li>
-            <li class="links my-1">
-              <a href="#type">
-                <font-awesome-icon :icon="['fas', 'utensils']" />
-                Restaurants
-              </a>
-            </li>
-            <li class="links">
-              <a href="#">
-                <font-awesome-icon :icon="['fas', 'address-card']" />
-                About us
-              </a>
-            </li>
-          </ul>
         </div>
-        <div class="col-md-6 col-12">
-          <h3 class="col-title">Description :</h3>
-          <p class="footer-description">
-            Questo progetto rappresenta la conclusione del nostro percorso presso 
-            <a class="description-link" href="https://boolean.careers/corso/full-stack-web-development">
-              <font-awesome-icon :icon="['fas', 'link']" />
-              <span class="ms-1">Boolean Carrers</span>
-            </a>
-            una prestigiosa accademia tech che permette a chiunque di approcciarsi al web developement partendo 
-            dalla creazione di pagine web in HTML e CSS, si progredisce all'aggiunta di interattività con JavaScript, infine si conclude con la gestione di database con MySQL e l'utilizzo di framework come Laravel e VueJs.
-          </p>
-        </div>
-  	 	</div>
-  	</div>
-  </footer>
-  <div class="copyright">Copyright © 2024 Boolean classe 103 team 5. Tutti i diritti riservati.</div>
-</div>
+      </div>
+    </footer>
+    <div class="copyright">Copyright © 2024 Boolean classe 103 team 5. Tutti i diritti riservati.</div>
+  </div>
 </template>
+
 
 <style scoped lang="scss">
 .footer-background {
