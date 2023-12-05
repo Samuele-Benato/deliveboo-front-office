@@ -245,12 +245,7 @@ export default {
   z-index: 3;
   font-weight: bolder;
 }
-.btn:hover .price {
-  // transform: translateX(-110%);
-}
-.btn:hover .shopping-cart {
-  // transform: translateX(0%);
-}
+
 .plate-image {
   transition: all 0.3s ease-out;
   position: relative;
