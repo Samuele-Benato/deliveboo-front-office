@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import "./style.scss";
 import { router } from "./router";
-
+import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 // Puoi importare solo i componenti che ti servono, ad esempio:
@@ -50,5 +50,6 @@ import App from "./App.vue";
 
 createApp(App)
   .use(router)
+  .use(store)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
