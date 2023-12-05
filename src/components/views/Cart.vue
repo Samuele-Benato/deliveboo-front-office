@@ -4,7 +4,7 @@
       <div class="col">
         <div class="card border-0">
           <div class="card-body p-4">
-            <div class="row">
+            <div class="row mt-5">
               <div class="col-lg-7">
                 <h5 class="mb-3">
                   <router-link :to="{ name: 'home' }" class="text-body"
@@ -106,9 +106,13 @@
                       <p class="mb-2">€ {{ cartTotal.toFixed(2) }}</p>
                     </div>
 
-                    <button type="button" class="btn btn-info btn-block btn-lg">
+                    <router-link
+                      type="button"
+                      class="btn btn-info btn-block btn-lg"
+                      :to="{ name: 'order-form' }"
+                    >
                       Vai al pagamento
-                    </button>
+                    </router-link>
                   </div>
                 </div>
               </div>
