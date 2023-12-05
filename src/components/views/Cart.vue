@@ -95,14 +95,14 @@
                     </div>
                     <hr class="my-4" />
                     <!-- Subtotal -->
-                    <div class="d-flex justify-content-between">
-                      <p class="mb-2">Subtotal</p>
+                    <!-- <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotale</p>
                       <p class="mb-2">€ {{ cartTotal.toFixed(2) }}</p>
-                    </div>
+                    </div> -->
 
                     <!-- Total -->
                     <div class="d-flex justify-content-between mb-4">
-                      <p class="mb-2">Total</p>
+                      <p class="mb-2">Totale</p>
                       <p class="mb-2">€ {{ cartTotal.toFixed(2) }}</p>
                     </div>
 
