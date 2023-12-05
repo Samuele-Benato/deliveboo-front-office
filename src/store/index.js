@@ -1,9 +1,10 @@
 import { createStore } from "vuex";
-/* eslint-disable */
+
 export default createStore({
   state: {
     cart: [],
     cartTotal: 0,
+    selectedRestaurantId: null,
   },
   mutations: {
     async initialiseStore(state) {
@@ -13,37 +14,50 @@ export default createStore({
       if (localStorage.getItem("cartTotal")) {
         state.cartTotal = parseFloat(localStorage.getItem("cartTotal"));
       }
+      if (localStorage.getItem("selectedRestaurantId")) {
+        state.selectedRestaurantId = parseInt(
+          localStorage.getItem("selectedRestaurantId")
+        );
+      }
       return true;
     },
     addRemoveCart(state, payload) {
-      //add or remove item
+      // Add or remove item
+      payload.plate.restaurantId = state.selectedRestaurantId;
       payload.toAdd
         ? state.cart.push(payload.plate)
-        : (state.cart = state.cart.filter(function (obj) {
-            return obj.id !== payload.plate.id;
-          }));
+        : (state.cart = state.cart.filter(
+            (obj) => obj.id !== payload.plate.id
+          ));
 
-      //calculating the total
+      // Calculating the total
       state.cartTotal = state.cart.reduce((accumulator, object) => {
         return parseFloat(accumulator) + parseFloat(object.price * object.qty);
       }, 0);
 
-      //saving in web storage
+      // Saving in web storage
       localStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     updateCart(state, payload) {
-      //update quantity
-      state.cart.find((o) => o.id === payload.plate.id).qty = payload.plate.qty;
+      // Update quantity
+      const itemToUpdate = state.cart.find((o) => o.id === payload.plate.id);
+      if (itemToUpdate) {
+        itemToUpdate.qty = payload.plate.qty;
+      }
 
-      //calculating the total
+      // Calculating the total
       state.cartTotal = state.cart.reduce((accumulator, object) => {
         return parseFloat(accumulator) + parseFloat(object.price * object.qty);
       }, 0);
 
-      //saving in web storage
+      // Saving in web storage
       localStorage.setItem("cartTotal", JSON.stringify(state.cartTotal));
       localStorage.setItem("cart", JSON.stringify(state.cart));
+    },
+    selectRestaurant(state, restaurantId) {
+      state.selectedRestaurantId = restaurantId;
+      localStorage.setItem("selectedRestaurantId", restaurantId);
     },
   },
   actions: {},

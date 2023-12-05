@@ -4,6 +4,12 @@ export default {
   props: {
     restaurant: Object,
   },
+
+  methods: {
+    selectRestaurant(restaurantId) {
+      this.$store.commit("selectRestaurant", restaurantId);
+    },
+  },
 };
 </script>
 
@@ -24,25 +30,25 @@ export default {
           </span>
         </div>
 
-       
-          <router-link 
+        <router-link
           class="menu-tag"
-            :to="{
+          @click="selectRestaurant(restaurantId)"
+          :to="{
             name: 'plates-by-restaurant',
-            params:{
-                restaurantId:restaurant.id,
+            params: {
+              restaurantId: restaurant.id,
             },
-            }" >
-            <div class="menu">
-              Menù <font-awesome-icon :icon="['fas', 'utensils']" />
-            </div>
-          </router-link>
-        
+          }"
+        >
+          <div class="menu">
+            Menù <font-awesome-icon :icon="['fas', 'utensils']" />
+          </div>
+        </router-link>
 
         <div class="_detail">
           <font-awesome-icon :icon="['fas', 'phone']" />
           <span class="ms-2">{{ restaurant.phone }}</span>
-        </div>        
+        </div>
       </div>
     </div>
   </div>
@@ -120,13 +126,13 @@ export default {
   border-radius: 10px;
   text-decoration: none;
 }
-.menu:hover{
-    transform: scale(1.5);
-    transition: 0.3s linear;
-  }
+.menu:hover {
+  transform: scale(1.5);
+  transition: 0.3s linear;
+}
 .menu-tag {
   text-decoration: none;
   background-color: #262424;
-  color:#e6d7cc ;
+  color: #e6d7cc;
 }
 </style>

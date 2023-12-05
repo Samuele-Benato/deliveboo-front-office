@@ -1,5 +1,5 @@
 <template>
-  <div v-if="plate" class="input-group plus-minus">
+  <div v-if="plate" class="input-group plus-minus justify-content-center">
     <button
       class="btn btn-outline-secondary"
       :class="loading ? 'disabled' : ''"
@@ -13,7 +13,7 @@
       type="number"
       v-model="qty"
       disabled
-      class="form-control form-control-sm"
+      class="form-control form-control-sm text-center"
       placeholder=""
       aria-label="Example text with button addon"
       aria-describedby="button-addon1"
@@ -49,7 +49,7 @@ export default {
           this.qty++;
           this.plate.qty = this.qty;
           await this.$store.commit("updateCart", { plate: this.plate });
-          toast.success("cart updated", {
+          toast.success("Carrello aggiornato", {
             autoClose: 1000,
           });
         } else {
@@ -63,7 +63,7 @@ export default {
           this.qty--;
           this.plate.qty = this.qty;
           await this.$store.commit("updateCart", { plate: this.plate });
-          toast.success("cart updated", {
+          toast.success("Carrello aggiornato", {
             autoClose: 1000,
           });
         } else {

@@ -30,39 +30,55 @@
                   :key="plate.id"
                 >
                   <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            :src="plate.image"
-                            class="img-fluid rounded-3"
-                            alt="Shopping plate"
-                            style="width: 65px"
-                          />
-                        </div>
-                        <div class="ms-3">
-                          <p>{{ plate.name }}</p>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <CartAddRemove :plate="plate" />
+                    <div class="row">
+                      <!-- Prima colonna -->
+                      <div class="col">
+                        <div class="d-flex flex-row align-items-center">
+                          <div>
+                            <img
+                              :src="plate.image"
+                              class="img-fluid rounded-3"
+                              alt="Shopping plate"
+                              style="width: 65px"
+                            />
+                          </div>
+                          <div class="ms-3">
+                            <p>{{ plate.name }}</p>
+                          </div>
                         </div>
                       </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <h5 class="mb-0">
-                            <i class="me-1">€</i>{{ calculateItemTotal(plate) }}
-                          </h5>
-                        </div>
-                        <a
-                          role="button"
-                          @click="removeItem(plate)"
-                          class="ms-4"
-                          style="color: white"
+
+                      <!-- Seconda colonna -->
+                      <div class="col">
+                        <div
+                          class="d-flex flex-row align-items-center justify-content-center"
                         >
-                          <i></i>🗑️
-                        </a>
+                          <div>
+                            <CartAddRemove :plate="plate" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Terza colonna -->
+                      <div class="col">
+                        <div
+                          class="d-flex flex-row align-items-center justify-content-around"
+                        >
+                          <div>
+                            <h5 class="mb-0">
+                              <i class="me-1">€</i
+                              >{{ calculateItemTotal(plate) }}
+                            </h5>
+                          </div>
+                          <a
+                            role="button"
+                            @click="removeItem(plate)"
+                            class="ms-2"
+                            style="color: white"
+                          >
+                            <span>🗑️</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -74,7 +90,7 @@
                     <div
                       class="d-flex justify-content-between align-items-center mb-4"
                     >
-                      <h5 class="mb-0">Cart details</h5>
+                      <h5 class="mb-0">Dettagli Carrello</h5>
                       <i class="bi bi-cart3 h1"></i>
                     </div>
                     <hr class="my-4" />
@@ -91,7 +107,7 @@
                     </div>
 
                     <button type="button" class="btn btn-info btn-block btn-lg">
-                      Checkout
+                      Vai al pagamento
                     </button>
                   </div>
                 </div>

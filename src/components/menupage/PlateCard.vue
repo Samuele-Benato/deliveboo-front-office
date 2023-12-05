@@ -15,6 +15,10 @@ export default {
     };
   },
   methods: {
+    removeItem(plate) {
+      this.$store.commit("addRemoveCart", { plate: plate, toAdd: false });
+    },
+
     async addOrRemove() {
       this.item.qty = 1;
       this.$store.commit("addRemoveCart", {
@@ -23,8 +27,8 @@ export default {
       });
       let toasMSG;
       this.toAdd
-        ? (toasMSG = "Added to cart")
-        : (toasMSG = "Removed from cart");
+        ? (toasMSG = "Aggiunto al carrello")
+        : (toasMSG = "Rimosso dal carrello");
       toast(toasMSG, {
         autoClose: 1000,
       });
@@ -59,19 +63,34 @@ export default {
           <p class="information">
             {{ plate.description }}
           </p>
+          <!-- <p class="information">
+            {{ plate.price }}
+          </p> -->
           <div class="control">
-            <button
-              type="button"
-              @click="addOrRemove()"
-              class="cart-btn btn btn-sm btn-outline-secondary me-2"
-            >
-              <i :class="toAdd ? 'fa fa-shopping-cart' : 'fa fa-shopping-cart'">
-                Aggiungi
-              </i>
+            <!-- Bottone Aggiungi -->
+            <button v-if="toAdd" class="btn" @click="addOrRemove">
+              <span class="buy">
+                <i class="fa fa-shopping-cart"></i> Aggiungi
+              </span>
+              <span class="price">{{ plate.price }} $</span>
             </button>
 
-            <CartAddRemove v-if="!toAdd" :plate="item" />
+            <!-- Bottone Rimuovi -->
+            <button v-if="!toAdd" class="btn btn-remove" @click="addOrRemove">
+              <span class="buy remove">
+                <i class="fa fa-shopping-cart"></i> Rimuovi
+              </span>
+              <!-- <span class="price remove">{{ plate.price }} $</span> -->
+            </button>
+
+            <!-- <button class="btn">
+                        <span class="price">{{plate.price}} $</span>
+                        <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                        <span class="buy">Aggiungi</span>
+                    </button> -->
           </div>
+
+          <CartAddRemove v-if="!toAdd" :plate="item" />
         </div>
       </div>
       <div class="image-container col-6">
@@ -161,6 +180,22 @@ export default {
 .plus-minus input {
   max-width: 50px;
 }
+
+.btn-remove {
+  background-color: red;
+  color: white;
+  border: 1px solid red; /* Aggiungi questa riga se vuoi un bordo rosso */
+  transition: background-color 0.3s; /* Aggiungi un'animazione di transizione */
+
+  &:hover {
+    background-color: darkred;
+  }
+}
+
+.remove {
+  background-color: red;
+  color: white;
+}
 .btn {
   transform: translateY(0px);
   transition: 0.3s linear;
@@ -195,11 +230,11 @@ export default {
   margin: 0;
 }
 .btn .price {
-  transform: translateX(-10%);
+  // transform: translateX(-10%);
   padding-right: 10px;
 }
 .btn .shopping-cart {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
   position: absolute;
   background: #999;
   z-index: 1;
@@ -211,10 +246,10 @@ export default {
   font-weight: bolder;
 }
 .btn:hover .price {
-  transform: translateX(-110%);
+  // transform: translateX(-110%);
 }
 .btn:hover .shopping-cart {
-  transform: translateX(0%);
+  // transform: translateX(0%);
 }
 .plate-image {
   transition: all 0.3s ease-out;
