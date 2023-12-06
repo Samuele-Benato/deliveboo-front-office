@@ -29,7 +29,7 @@ export default {
     <div class="cart-background">
       <div class="cart-overlay">
         <div class="container">
-          <div class="row my-4">
+          <div class="row">
             <div class="col-12 col-lg-7 my-4">
               <div class="cart-card">
                 <h5 v-if="$store.state.cart.length > 0">
@@ -58,7 +58,7 @@ export default {
                 >
                     <div class="row">
                       <!-- Prima colonna -->
-                      <div class="col-5">
+                      <div class="col-5 ">
                           <div class="cart-image-container">
                             <img
                               :src="plate.image"
@@ -97,7 +97,7 @@ export default {
               </div>
             </div>
             
-            <div v-if="$store.state.cart.length > 0" class="col-6 col-lg-5 my-4">
+            <div v-if="$store.state.cart.length > 0" class="col-8 col-lg-5 my-4">
               <div class="cart-details">
                   <div class="space-between">
                     <h5 class="mb-0">Dettagli Carrello</h5>
@@ -134,14 +134,14 @@ export default {
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
 }
 .cart-overlay{
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
   min-width: 540px;
   height: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
   padding-top: 6rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
