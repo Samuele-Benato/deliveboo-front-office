@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="col-6 col-md-3">
-            <h3 class="col-title">Quick Links :</h3>
+            <h3 class="col-title">Link Veloci :</h3>
             <ul class="list-group">
               <li class="links">
                 <router-link :to="{ name: 'home' }">
@@ -39,19 +39,19 @@
               <li class="links my-1">
                 <router-link :to="{ name: 'home' }">
                   <font-awesome-icon :icon="['fas', 'utensils']" />
-                  Restaurants
+                  Ristoranti
                 </router-link>
               </li>
               <li class="links">
                 <router-link :to="{ name: 'about' }">
                   <font-awesome-icon :icon="['fas', 'address-card']" />
-                  About us
+                  Il nostro team
                 </router-link>
               </li>
             </ul>
           </div>
           <div class="col-12 col-md-6">
-            <h3 class="col-title">Description :</h3>
+            <h3 class="col-title">Descrizione :</h3>
             <p class="footer-description">
               Questo progetto rappresenta la conclusione del nostro percorso
               presso
