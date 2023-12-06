@@ -12,4 +12,3 @@ export default {
   <AboutSection />
 </template>
 
-<style lang="scss" scoped></style>
