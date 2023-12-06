@@ -12,4 +12,3 @@ export default {
   <MenuSection />
 </template>
 
-<style lang="scss" scoped></style>
