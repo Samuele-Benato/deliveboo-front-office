@@ -96,7 +96,6 @@ export default {
           :class="{
             disabled: !type.active,
             clickable: !type.active,
-            'green-text': type.active,
           }"
           @click="toggleType(type)"
         >
@@ -137,18 +136,13 @@ export default {
   border-radius: 5px;
 }
 
-.green-text {
-  color: green;
-}
-
-.badge-types:hover {
+.disabled:hover {
   transform: scale(1.1);
-  transition: 0.2s linear;
-  box-shadow: 4px 4px 4px #d7d3d3;
+  transition: 0.3s ease-in-out;
 }
 
 .disabled {
-  box-shadow: 4px 4px 4px #1f1f1f !important;
+  box-shadow: 1px 1px 8px 2px #8c8a8a !important;
   background-color: #1f1f1f;
   color: #d7d3d3;
 }
