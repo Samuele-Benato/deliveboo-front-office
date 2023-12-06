@@ -31,22 +31,22 @@
             <h3 class="col-title">Quick Links :</h3>
             <ul class="list-group">
               <li class="links">
-                <a href="#">
+                <router-link :to="{ name: 'home' }">
                   <font-awesome-icon :icon="['fas', 'house']" />
                   Home
-                </a>
+                </router-link>
               </li>
               <li class="links my-1">
-                <a href="#type">
+                <router-link :to="{ name: 'home' }">
                   <font-awesome-icon :icon="['fas', 'utensils']" />
                   Restaurants
-                </a>
+                </router-link>
               </li>
               <li class="links">
-                <a href="#">
+                <router-link :to="{ name: 'about' }">
                   <font-awesome-icon :icon="['fas', 'address-card']" />
                   About us
-                </a>
+                </router-link>
               </li>
             </ul>
           </div>
