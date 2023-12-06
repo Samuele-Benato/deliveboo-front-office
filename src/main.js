@@ -22,6 +22,9 @@ import {
   faAddressCard,
   faLink,
   faUserTie,
+  faCartArrowDown,
+  faCircleInfo,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 /* import specific brand icons */
 import {
@@ -40,6 +43,9 @@ library.add(
   faAddressCard,
   faLink,
   faUserTie,
+  faCartArrowDown,
+  faCircleInfo,
+  faTrashCan,
   faLinkedinIn,
   faVuejs,
   faLaravel,
