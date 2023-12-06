@@ -72,7 +72,7 @@ export default {
               <span class="buy">
                 <i class="fa fa-shopping-cart"></i> Aggiungi
               </span>
-              <span class="price">{{ plate.price }} $</span>
+              <span class="price">{{ plate.price }} €</span>
             </button>
 
             <!-- Bottone Rimuovi -->
