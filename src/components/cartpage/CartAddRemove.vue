@@ -1,34 +1,3 @@
-<template>
-  <div v-if="plate" class="input-group plus-minus justify-content-center">
-    <button
-      class="btn btn-outline-secondary"
-      :class="loading ? 'disabled' : ''"
-      @click="addOrRemove(-1)"
-      type="button"
-      id="button-addon1"
-    >
-      -
-    </button>
-    <input
-      type="number"
-      v-model="qty"
-      disabled
-      class="form-control form-control-sm text-center"
-      placeholder=""
-      aria-label="Example text with button addon"
-      aria-describedby="button-addon1"
-    />
-    <button
-      class="btn btn-outline-secondary"
-      :class="loading ? 'disabled' : ''"
-      @click="addOrRemove(1)"
-      type="button"
-      id="button-addon1"
-    >
-      +
-    </button>
-  </div>
-</template>
 <script>
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
@@ -80,6 +49,39 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div v-if="plate" class="input-group plus-minus justify-content-center">
+    <button
+      class="btn btn-outline-secondary"
+      :class="loading ? 'disabled' : ''"
+      @click="addOrRemove(-1)"
+      type="button"
+      id="button-addon1"
+    >
+      -
+    </button>
+    <input
+      type="number"
+      v-model="qty"
+      disabled
+      class="form-control form-control-sm text-center"
+      placeholder=""
+      aria-label="Example text with button addon"
+      aria-describedby="button-addon1"
+    />
+    <button
+      class="btn btn-outline-secondary"
+      :class="loading ? 'disabled' : ''"
+      @click="addOrRemove(1)"
+      type="button"
+      id="button-addon1"
+    >
+      +
+    </button>
+  </div>
+</template>
+
 <style>
 .plus-minus input {
   max-width: 50px;

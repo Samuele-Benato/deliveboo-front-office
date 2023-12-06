@@ -75,4 +75,4 @@ nav {
   width: 50px;
 }
 </style>
-<!-- v-if="$store.state.cart.length > 0" -->
+

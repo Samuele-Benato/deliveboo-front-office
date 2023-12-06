@@ -1,3 +1,30 @@
+<script>
+import CartAddRemove from "../components/cartpage/CartAddRemove.vue";
+export default {
+  components: { CartAddRemove },
+  computed: {
+    cartItems() {
+      return this.$store.state.cart;
+    },
+    cartTotal() {
+      return this.$store.state.cartTotal;
+    },
+    cartItemCount() {
+      return this.$store.state.cart.length;
+    },
+  },
+  methods: {
+    removeItem(plate) {
+      this.$store.commit("addRemoveCart", { plate: plate, toAdd: false });
+    },
+    calculateItemTotal(plate) {
+      return (plate.price * plate.qty).toFixed(2);
+    },
+  },
+  mounted() {},
+};
+</script>
+
 <template>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -70,6 +97,7 @@
                               >{{ calculateItemTotal(plate) }}
                             </h5>
                           </div>
+                          <!-- form -->
                           <a
                             role="button"
                             @click="removeItem(plate)"
@@ -78,6 +106,7 @@
                           >
                             <span>🗑️</span>
                           </a>
+                          <!-- /form -->
                         </div>
                       </div>
                     </div>
@@ -120,29 +149,3 @@
   </div>
 </template>
 
-<script>
-import CartAddRemove from "../CartAddRemove.vue";
-export default {
-  components: { CartAddRemove },
-  computed: {
-    cartItems() {
-      return this.$store.state.cart;
-    },
-    cartTotal() {
-      return this.$store.state.cartTotal;
-    },
-    cartItemCount() {
-      return this.$store.state.cart.length;
-    },
-  },
-  methods: {
-    removeItem(plate) {
-      this.$store.commit("addRemoveCart", { plate: plate, toAdd: false });
-    },
-    calculateItemTotal(plate) {
-      return (plate.price * plate.qty).toFixed(2);
-    },
-  },
-  mounted() {},
-};
-</script>
