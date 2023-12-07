@@ -53,7 +53,7 @@ export default {
 <template>
   <div v-if="plate" class="input-group plus-minus justify-content-center">
     <button
-      class="btn btn-outline-secondary"
+      class="btn-add-remove"
       :class="loading ? 'disabled' : ''"
       @click="addOrRemove(-1)"
       type="button"
@@ -65,13 +65,13 @@ export default {
       type="number"
       v-model="qty"
       disabled
-      class="form-control form-control-sm text-center"
+      class="number-add-remove "
       placeholder=""
       aria-label="Example text with button addon"
       aria-describedby="button-addon1"
     />
     <button
-      class="btn btn-outline-secondary"
+      class="btn-add-remove"
       :class="loading ? 'disabled' : ''"
       @click="addOrRemove(1)"
       type="button"
@@ -85,5 +85,20 @@ export default {
 <style>
 .plus-minus input {
   max-width: 50px;
+}
+.btn-add-remove{
+  border-radius: 5px;
+  padding: .25rem .75rem;
+  background-color: #222;
+  opacity: .8;
+  color: #bababa;
+}
+.number-add-remove{
+  background-color: #bababa;
+  opacity: .8;
+  color: #222;
+  text-align: center;
+  padding-left: .75rem;
+  margin: 0; 
 }
 </style>
