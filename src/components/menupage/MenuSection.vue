@@ -45,6 +45,13 @@ export default {
 
 <template>
   <div class="menu-background">
+    <div class="menu-container">
+      <div v-if="plates.length === 0" class="not-avaiable">
+        <h2 class="not-avaiable-title">
+          Il menu è in fase di aggiornamento, Al momento non è disponibile.
+        </h2>
+      </div>
+      <div v-else>
         <div
           v-for="(plate, index) in plates"
           :key="index">
@@ -54,11 +61,13 @@ export default {
             <span class="restaurant-phone"><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2">+{{ plate.restaurant.phone }}</span></span>
           </div>
         </div>
-    <div class="menu-container">
-        <h2 class="menu-title">Il nostro menù :</h2>
-        <div class="row">
-          <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
+        <div class="menu-padding">
+          <h2 class="menu-title">Il nostro menù :</h2>
+          <div class="row">
+            <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +90,8 @@ export default {
   min-height: 100vh;
   height: 100%;
   padding-top: 1rem;
+}
+.menu-padding{
   padding-left: 3rem;
 }
 
@@ -90,13 +101,15 @@ export default {
   font-size: 5rem;
   margin-top: 1.5rem;
 }
-.restaurant-detail{
+.restaurant-detail,
+.not-avaiable{
  padding-bottom: 20px;
   text-align: center;
-  background-color: rgba($color: #000000, $alpha: 0.9);
+  background-color: rgba($color: #000000, $alpha: 0.6);
   padding-top: 7rem;
 }
-.restaurant-title{
+.restaurant-title,
+.not-avaiable-title{
   color: #d7d3d3;
   font-weight: 700;
   font-size: 2rem;

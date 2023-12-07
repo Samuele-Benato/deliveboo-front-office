@@ -83,13 +83,13 @@ export default {
                               <i class="me-1">€</i>
                               {{ calculateItemTotal(plate) }}
                           </div>
-                                <!-- form -->
-                                <a
-                                    role="button"
-                                    @click="removeItem(plate)">
-                                    <font-awesome-icon class="trash-icon" :icon="['fas', 'trash-can']" />
-                                </a>
-                                    <!-- /form -->
+                              <!-- form -->
+                              <a
+                                role="button"
+                                @click="removeItem(plate)">
+                                <font-awesome-icon class="trash-icon" :icon="['fas', 'trash-can']" />
+                              </a>
+                                  <!-- /form -->
                             </div>
                       </div>
                     </div>
