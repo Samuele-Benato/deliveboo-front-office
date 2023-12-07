@@ -86,14 +86,14 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100%;
-  min-height: 95vh;
+  min-height: 72vh;
 }
 .about-container {
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
   min-width: 540px;
   height: 100%;
-  min-height: 95vh;
+  min-height: 72vh;
   padding-top: 8rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
