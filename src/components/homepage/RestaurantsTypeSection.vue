@@ -104,7 +104,7 @@ export default {
       </div>
 
       <div v-if="filteredRestaurants.length === 0">
-        <p class="title-type-section">
+        <p class="title-not-found">
           Nessun ristorante disponibile per le tipologie selezionate.
         </p>
       </div>
@@ -197,5 +197,14 @@ export default {
   color: #d7d3d3;
   font-weight: 700;
   font-size: 3rem;
+}
+.title-not-found{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0) 100%);
+  padding: 0.5rem;
+  width: 100%;
+  color: #d7d3d3;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 </style>
