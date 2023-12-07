@@ -197,6 +197,13 @@ font-size: 1.15rem;
     color: #dadada;
     font-weight: 500;
 }
+.details-btn:hover{
+  transform: scale(1.05);
+  transition: .3s linear;
+  background-color: rgba($color: #222, $alpha: .8);
+  color: #dadada;
+  box-shadow: 1px 1px 8px 2px #222 !important;
+}
 .cart-image-container,
 .cart-price-container,
 .quantity{
