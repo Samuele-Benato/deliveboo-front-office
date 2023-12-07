@@ -34,13 +34,13 @@ export default {
               <div class="cart-card">
                 <h5 v-if="$store.state.cart.length > 0">
                   <router-link :to="{ name: 'home' }" class="cart-title">
-                    Inizia ad ordinare
+                    Continua ad ordinare
                     <font-awesome-icon :icon="['fas', 'cart-arrow-down']" />
                   </router-link>
                 </h5>
                 <h5 v-else>
                   <router-link :to="{ name: 'home' }" class="cart-title">
-                    Comincia ad ordinare
+                    Inizia ad ordinare
                     <font-awesome-icon :icon="['fas', 'cart-arrow-down']" />
                   </router-link>
                 </h5>
