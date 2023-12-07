@@ -80,14 +80,14 @@ export default {
   background-position: start;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 50vh;
+  min-height: 71.5vh;
   height: 100%;
 }
 .menu-container {
   background-color: rgba($color: #000, $alpha: 0.8);
   width: 100%;
   min-width: 540px;
-  min-height: 100vh;
+  min-height: 71.5vh;
   height: 100%;
   padding-top: 1rem;
 }
