@@ -52,19 +52,33 @@ export default {
         </h2>
       </div>
       <div v-else>
-        <div
-          v-for="(plate, index) in plates"
-          :key="index">
+        <div v-for="(plate, index) in plates" :key="index">
           <div v-if="detailRestaurant(plate, index)" class="restaurant-detail">
-            <h4 class="restaurant-title">Grazie per aver scelto {{ plate.restaurant.name }}</h4>
-            <span class="restaurant-address"><font-awesome-icon :icon="['fas', 'location-dot']" /><span class="ms-2">{{ plate.restaurant.address }}</span></span>
-            <span class="restaurant-phone"><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2">+{{ plate.restaurant.phone }}</span></span>
+            <h4 class="restaurant-title">
+              Grazie per aver scelto {{ plate.restaurant.name }}
+            </h4>
+            <span class="restaurant-address"
+              ><font-awesome-icon :icon="['fas', 'location-dot']" /><span
+                class="ms-2"
+                >{{ plate.restaurant.address }}</span
+              ></span
+            >
+            <span class="restaurant-phone"
+              ><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2"
+                >+{{ plate.restaurant.phone }}</span
+              ></span
+            >
+            <span class="restaurant-description"
+              ><span class="ms-2">{{
+                plate.restaurant.description
+              }}</span></span
+            >
           </div>
         </div>
         <div class="menu-padding">
           <h2 class="menu-title">Il nostro menù :</h2>
           <div class="row">
-            <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
+            <PlateCard v-for="plate in plates" :key="plate.id" :plate="plate" />
           </div>
         </div>
       </div>
@@ -91,7 +105,7 @@ export default {
   height: 100%;
   padding-top: 1rem;
 }
-.menu-padding{
+.menu-padding {
   padding-left: 3rem;
 }
 
@@ -102,46 +116,46 @@ export default {
   margin-top: 1.5rem;
 }
 .restaurant-detail,
-.not-avaiable{
- padding-bottom: 20px;
+.not-avaiable {
+  padding-bottom: 20px;
   text-align: center;
   background-color: rgba($color: #000000, $alpha: 0.6);
   padding-top: 7rem;
 }
 .restaurant-title,
-.not-avaiable-title{
+.not-avaiable-title {
   color: #d7d3d3;
   font-weight: 700;
   font-size: 2rem;
 }
 .restaurant-address,
-.restaurant-phone{
+.restaurant-phone,
+.restaurant-description {
   color: #d7d3d3;
   font-size: 1.2rem;
   display: block;
 }
 
-
 /* Schermi con larghezza inferiore a 993px */
 @media only screen and (max-width: 992px) {
   .title-menu {
-  font-size: 4rem;
-}
-.restaurant-title{
-  font-size: 1.5rem;
-}
-.restaurant-address,
-.restaurant-phone{
-  font-size: 1rem;
-}
+    font-size: 4rem;
+  }
+  .restaurant-title {
+    font-size: 1.5rem;
+  }
+  .restaurant-address,
+  .restaurant-phone {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .title-menu {
-  font-size: 3.5rem;
-}
-.container-menu {
-  padding-right: 3rem;
-}
+    font-size: 3.5rem;
+  }
+  .container-menu {
+    padding-right: 3rem;
+  }
 }
 </style>
