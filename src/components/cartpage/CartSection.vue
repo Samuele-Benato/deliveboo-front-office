@@ -56,7 +56,7 @@ export default {
               >
                 <div class="row">
                   <!-- Prima colonna -->
-                  <div class="col-5">
+                  <div class="col-md-5 col-12">
                     <div class="cart-image-container">
                       <img :src="plate.image" class="cart-image" alt="plate" />
                       <span class="plate-name">{{ plate.name }}</span>
@@ -64,14 +64,14 @@ export default {
                   </div>
 
                   <!-- Seconda colonna -->
-                  <div class="col-4 quantity">
+                  <div class="col-md-4 col-8 quantity">
                     <div class="cartaddremove-container">
                       <CartAddRemove :plate="plate" />
                     </div>
                   </div>
 
                   <!-- Terza colonna -->
-                  <div class="col-3">
+                  <div class=" col-md-3 col-4">
                     <div class="cart-price-container">
                       <div class="total-price">
                         <i class="me-1">€</i>
@@ -92,7 +92,7 @@ export default {
             </div>
           </div>
 
-          <div v-if="$store.state.cart.length > 0" class="col-8 col-lg-5 my-4">
+          <div v-if="$store.state.cart.length > 0" class="col-12 col-lg-5 my-4">
             <div class="cart-details">
               <div class="space-between">
                 <h5 class="mb-0">Dettagli Carrello</h5>
@@ -134,7 +134,7 @@ export default {
 .cart-overlay {
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
-  min-width: 540px;
+  min-width: 400px;
   height: 100%;
   min-height: 80vh;
   padding-top: 6rem;
