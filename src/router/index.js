@@ -3,6 +3,8 @@ import HomePage from "../pages/HomePage.vue";
 import AboutPage from "../pages/AboutPage.vue";
 import MenuPage from "../pages/MenuPage.vue";
 import CartPage from "../pages/CartPage.vue";
+import PaymentForm from "../pages/PaymentForm.vue";
+import SuccessForm from "../pages/SuccessForm.vue";
 
 const router = createRouter({
   // aggiungi history
@@ -29,6 +31,17 @@ const router = createRouter({
       path: "/cart",
       name: "Cart",
       component: CartPage,
+    },
+
+    {
+      path: "/payment-form",
+      name: "payment-form",
+      component: PaymentForm,
+    },
+    {
+      path: "/success",
+      name: "success",
+      component: SuccessForm,
     },
   ],
 });

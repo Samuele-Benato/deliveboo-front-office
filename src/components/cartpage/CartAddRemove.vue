@@ -36,7 +36,7 @@ export default {
             autoClose: 1000,
           });
         } else {
-          toast.warning("Hai raggiunto il limite", {
+          toast.warning("Svuota il carrello", {
             autoClose: 3000,
           });
         }
