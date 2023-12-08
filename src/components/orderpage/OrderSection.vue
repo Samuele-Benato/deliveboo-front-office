@@ -63,8 +63,8 @@ export default {
           effettuare il pagamento.
         </div>
   
-        <form class="ms-auto row my-2 w-50" @submit.prevent="showSuccessMessage">
-          <div class="col-6 mb-3">
+        <form class="ms-auto row my-2 width-50" @submit.prevent="showSuccessMessage">
+          <div class="col-md-6 col-12 mb-3">
             <label for="name" class="form_label">Nome:</label>
             <input
               type="text"
@@ -75,7 +75,7 @@ export default {
             />
           </div>
   
-          <div class="col-6 mb-3">
+          <div class="col-md-6 col-12 mb-3">
             <label for="lastname" class="form_label">Cognome:</label>
             <input
               type="text"
@@ -86,7 +86,7 @@ export default {
             />
           </div>
   
-          <div class="col-6 mb-3">
+          <div class="col-md-6 col-12 mb-3">
             <label for="email" class="form_label">Email:</label>
             <input
               type="email"
@@ -97,7 +97,7 @@ export default {
             />
           </div>
   
-          <div class="col-6 mb-3">
+          <div class="col-md-6 col-12 mb-3">
             <label for="phone" class="form_label">Telefono:</label>
             <input
               type="text"
@@ -160,7 +160,7 @@ export default {
 .order-container {
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
-  min-width: 540px;
+  min-width: 400px;
   height: 100%;
   min-height: 80vh;
   padding-top: 8rem;
@@ -186,7 +186,7 @@ export default {
 }
 .text-center{
     text-align: center;
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
 }
 .input-form{
     background-color: #C5B7D1;
@@ -212,6 +212,15 @@ export default {
   background-color: rgba($color: #222, $alpha: 0.8);
   color: #aa9709;
   box-shadow: 1px 1px 8px 2px #222 !important;
+}
+.width-50{
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .width-50{
+  width: 80%;
+  margin: 0 auto;
+}
 }
 
 </style>
