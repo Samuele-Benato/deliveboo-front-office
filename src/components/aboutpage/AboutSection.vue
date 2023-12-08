@@ -91,7 +91,7 @@
 .about-container {
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
-  min-width: 540px;
+  min-width: 400px;
   height: 100%;
   min-height: 72vh;
   padding-top: 8rem;
