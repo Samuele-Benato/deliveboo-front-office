@@ -243,5 +243,8 @@ export default {
   width: 80%;
   margin: 0 auto;
 }
+.error-message{
+  width: 81%;
+}
 }
 </style>
