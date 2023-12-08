@@ -3,7 +3,7 @@
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-6 col-md-3">
+          <div class="mb-4 col-6 col-md-3">
             <div class="center-content">
               <img class="logo" src="img/logo.png" alt="Logo" />
               <h3 class="ms-2 col-title">Deliveboo<br />Authors :</h3>
@@ -27,7 +27,7 @@
               </span>
             </div>
           </div>
-          <div class="col-6 col-md-3">
+          <div class="mb-4 col-6 col-md-3">
             <h3 class="col-title">Link Veloci :</h3>
             <ul class="list-group">
               <li class="links">
@@ -139,6 +139,7 @@
   color: #dadada;
   font-weight: 600;
   font-size: 1rem;
+  margin: 0;
 }
 .description-link {
   color: #dadada;
