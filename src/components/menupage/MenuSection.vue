@@ -71,7 +71,7 @@ export default {
           </div>
         </div>
         <div class="menu-padding">
-          <h2 class="menu-title">Il nostro menù :</h2>
+          <h2 class="menu-title h1">Il nostro menù :</h2>
           <div class="row">
             <PlateCard v-for="plate in plates" :key="plate.id" :plate="plate" />
           </div>
@@ -95,19 +95,18 @@ export default {
 .menu-container {
   background-color: rgba($color: #000, $alpha: 0.8);
   width: 100%;
-  min-width: 540px;
+  min-width: 400px;
   min-height: 71.5vh;
   height: 100%;
   padding-top: 1rem;
 }
 .menu-padding {
-  padding-left: 3rem;
+  padding: 0 3rem;
 }
 
 .menu-title {
   color: #d7d3d3;
   font-weight: 700;
-  font-size: 5rem;
   margin-top: 1.5rem;
 }
 .restaurant-detail,
@@ -131,26 +130,6 @@ export default {
   display: block;
 }
 
-/* Schermi con larghezza inferiore a 993px */
-@media only screen and (max-width: 992px) {
-  .title-menu {
-    font-size: 4rem;
-  }
-  .restaurant-title {
-    font-size: 1.5rem;
-  }
-  .restaurant-address,
-  .restaurant-phone {
-    font-size: 1rem;
-  }
-}
 
-@media (max-width: 768px) {
-  .title-menu {
-    font-size: 3.5rem;
-  }
-  .container-menu {
-    padding-right: 3rem;
-  }
-}
+
 </style>
