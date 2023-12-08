@@ -21,6 +21,14 @@ export default createStore({
       }
       return true;
     },
+
+    clearCart(state) {
+      state.cart = [];
+      state.cartTotal = 0;
+      localStorage.removeItem("cart");
+      localStorage.removeItem("cartTotal");
+    },
+
     addRemoveCart(state, payload) {
       // Add or remove item
       payload.plate.restaurantId = state.selectedRestaurantId;
@@ -60,6 +68,7 @@ export default createStore({
       localStorage.setItem("selectedRestaurantId", restaurantId);
     },
   },
+
   actions: {},
   modules: {},
 });
