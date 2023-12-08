@@ -176,19 +176,17 @@ export default {
 }
 
 .btn-remove {
-  background-color: red;
-  color: white;
-  border: 1px solid red; /* Aggiungi questa riga se vuoi un bordo rosso */
+  background-color: rgb(188, 6, 6);
+  color: #dadada;
   transition: background-color 0.3s; /* Aggiungi un'animazione di transizione */
 
   &:hover {
     background-color: darkred;
   }
 }
-
 .remove {
-  background-color: red;
-  color: white;
+  background-color: rgb(188, 6, 6);;
+  color: #dadada;
 }
 .btn {
   transform: translateY(0px);
