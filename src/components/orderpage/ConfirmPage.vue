@@ -75,11 +75,11 @@ export default {
 
     <div v-if="!showCongratulations" class="payment-background">
       <div class="payment-container">
-        <form class="me-auto row my-2 w-50" @submit.prevent="handlePayment">
+        <form class="me-auto row my-2 width-50" @submit.prevent="handlePayment">
           <div v-if="validationError" class="error-message">
             {{ validationError }}
           </div>
-          <div class="col-6">
+          <div class="col-lg-6 col-12">
             <label class="form_label" for="owner">Nome titolare carta:</label>
             <input
               class="input-form"
@@ -89,8 +89,8 @@ export default {
               required
             />
           </div>
-          <div class="col-6">
-            <label class="form_label" for="creditCardNumber">Numero carta di credito:</label>
+          <div class="col-lg-6 col-12">
+            <label class="form_label" for="creditCardNumber">Numero carta:</label>
             <input
               class="input-form"
               type="text"
@@ -147,7 +147,7 @@ export default {
 .confirm-container{
   background-color: rgba($color: #000, $alpha: 0.7);
   width: 100%;
-  min-width: 540px;
+  min-width: 400px;
   height: 100%;
   min-height: 80vh;
   padding-top: 8rem;
@@ -235,5 +235,13 @@ export default {
   font-size: 1.5rem;
   padding-left: 10px;
 }
-
+.width-50{
+  width: 50%;
+}
+@media (max-width: 768px) {
+  .width-50{
+  width: 80%;
+  margin: 0 auto;
+}
+}
 </style>
