@@ -68,11 +68,6 @@ export default {
                 >+{{ plate.restaurant.phone }}</span
               ></span
             >
-            <span class="restaurant-description"
-              ><span class="ms-2">{{
-                plate.restaurant.description
-              }}</span></span
-            >
           </div>
         </div>
         <div class="menu-padding">
