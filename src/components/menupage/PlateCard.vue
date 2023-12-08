@@ -66,25 +66,40 @@ export default {
           <!-- <p class="information">
             {{ plate.price }}
           </p> -->
-          <div class="control">
-            <!-- Bottone Aggiungi -->
-            <button v-if="toAdd" class="btn" @click="addOrRemove">
-              <span class="buy">
-                <i class="fa fa-shopping-cart"></i> Aggiungi
-              </span>
-              <span class="price">{{ plate.price }} €</span>
-            </button>
 
-            <!-- Bottone Rimuovi -->
-            <button v-if="!toAdd" class="btn btn-sm btn-remove" @click="addOrRemove">
-              <span class="buy remove">
-                <i class="fa fa-shopping-cart"></i> Rimuovi
-              </span>
-              <!-- <span class="price remove">{{ plate.price }} $</span> -->
-            </button>
+          <div v-if="plate.restaurant.id !== plate.restaurant_id">
+            <div>Non puoi ordinare da questo ristorante</div>
           </div>
+          <div v-else>
+            <div class="control">
+              <!-- Bottone Aggiungi -->
+              <button
+                v-if="toAdd"
+                class="btn"
+                :disabled="plate.restaurant.id !== plate.restaurant_id"
+                @click="addOrRemove"
+              >
+                <span class="buy">
+                  <i class="fa fa-shopping-cart"></i> Aggiungi
+                </span>
+                <span class="price">{{ plate.price }} €</span>
+              </button>
 
-          <CartAddRemove class="mb-3" v-if="!toAdd" :plate="item" />
+              <!-- Bottone Rimuovi -->
+              <button
+                v-if="!toAdd"
+                class="btn btn-sm btn-remove"
+                @click="addOrRemove"
+              >
+                <span class="buy remove">
+                  <i class="fa fa-shopping-cart"></i> Rimuovi
+                </span>
+                <!-- <span class="price remove">{{ plate.price }} $</span> -->
+              </button>
+            </div>
+
+            <CartAddRemove class="mb-3" v-if="!toAdd" :plate="item" />
+          </div>
         </div>
       </div>
       <div class="image-container col-6">
