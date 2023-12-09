@@ -121,9 +121,7 @@ export default {
   
           <!-- Bottone di invio -->
           <div class="text-center">
-            <span class="total-price">
-              Totale € {{ calculateItemTotal.toFixed(2) }}
-            </span>
+           
             <button
               type="submit"
               class="payment-btn"
@@ -176,13 +174,6 @@ export default {
     font-size: 1.25rem;
     font-weight: 600;
     padding: 0.25rem;
-}
-.total-price{
-    display: block;
-    color: #dadada;
-    font-size: 1rem;
-    font-weight: 600;
-   
 }
 .text-center{
     text-align: center;

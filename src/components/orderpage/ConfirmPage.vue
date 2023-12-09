@@ -115,6 +115,9 @@ export default {
             <input class="input-form" type="text" id="cvv" v-model="cvv" required />
           </div>
           <div class="text-center">
+            <span class="total-price">
+              Totale € {{ calculateItemTotal.toFixed(2) }}
+            </span>
             <button class="payment-btn" type="submit">
               Invia
             </button>
@@ -207,6 +210,14 @@ export default {
   background-color: rgba($color: #aa9709, $alpha: 0.8);
   color: #dadada;
   box-shadow: 1px 1px 8px 2px #dadada !important;
+}
+.total-price{
+    display: block;
+    color: #dadada;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+   
 }
 .text-center{
     text-align: center;
