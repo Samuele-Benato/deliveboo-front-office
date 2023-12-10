@@ -30,7 +30,7 @@ export default {
           "Il numero della carta di credito deve essere di 12 cifre.";
         return;
       }
-      if (this.expirationDate.length !== 4) {
+      if (this.expirationDate.length !== 5) {
         this.validationError = "La scadenza deve essere di 5 caratteri.";
         return;
       }
