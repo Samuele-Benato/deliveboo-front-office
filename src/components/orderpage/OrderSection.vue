@@ -180,7 +180,7 @@ export default {
     margin: 1.5rem 0;
 }
 .input-form{
-    background-color: #C5B7D1;
+    background-color:#8364a9;
     border-radius: 5px;
     color: #222;
     font-weight: 600;
