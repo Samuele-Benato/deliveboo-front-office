@@ -65,7 +65,7 @@ export default {
             >
             <span class="restaurant-phone"
               ><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2"
-                >+{{ plate.restaurant.phone }}</span
+                >{{ plate.restaurant.phone }}</span
               ></span
             >
           </div>
@@ -120,16 +120,13 @@ export default {
 .not-avaiable-title {
   color: #d7d3d3;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .restaurant-address,
 .restaurant-phone,
 .restaurant-description {
   color: #d7d3d3;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: block;
 }
-
-
-
 </style>
