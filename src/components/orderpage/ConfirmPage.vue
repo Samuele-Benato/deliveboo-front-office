@@ -31,7 +31,7 @@ export default {
         return;
       }
       if (this.expirationDate.length !== 4) {
-        this.validationError = "La scadenza deve essere di 4 cifre.";
+        this.validationError = "La scadenza deve essere di 5 caratteri.";
         return;
       }
 
@@ -61,7 +61,7 @@ export default {
       <div class="confirm-container justify-content-center">
         <div class="text-center">
           <h1 class="success-title">Complimenti, hai completato il tuo ordine!</h1>
-          <p class="success-subtitle">Ce ne occuperemo al più presto.</p>
+          <p class="success-subtitle">Arriveremo al più presto.</p>
           <router-link
             class="d-flex align-items-center justify-content-center text-decoration-none"
             :to="{ name: 'home' }"
