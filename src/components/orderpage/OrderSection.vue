@@ -180,9 +180,9 @@ export default {
     margin: 1.5rem 0;
 }
 .input-form{
-    background-color:#8364a9;
+    background-color:#704f97;
     border-radius: 5px;
-    color: #222;
+    color: #dadada;
     font-weight: 600;
     padding: 7px 10px;
     border: none;
