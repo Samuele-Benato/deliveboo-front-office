@@ -25,9 +25,9 @@ export default {
         this.validationError = "Il nome del titolare deve contenere solo lettere";
         return;
       }
-      if (this.creditCardNumber.length !== 12) {
+      if (this.creditCardNumber.length !== 16) {
         this.validationError =
-          "Il numero della carta di credito deve essere di 12 cifre.";
+          "Il numero della carta di credito deve essere di 16 cifre.";
         return;
       }
       if (this.expirationDate.length !== 5) {
@@ -80,7 +80,7 @@ export default {
             {{ validationError }}
           </div>
           <div class="col-lg-6 col-12">
-            <label class="form_label" for="owner">Nome titolare carta:</label>
+            <label class="form_label" for="owner">Intestatario carta:</label>
             <input
               class="input-form"
               type="text"
