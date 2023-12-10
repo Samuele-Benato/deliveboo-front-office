@@ -56,7 +56,7 @@ export default {
               >
                 <div class="row">
                   <!-- Prima colonna -->
-                  <div class="col-md-5 col-12">
+                  <div class="col-md-5 col-5">
                     <div class="cart-image-container">
                       <img :src="plate.image" class="cart-image" alt="plate" />
                       <span class="plate-name">{{ plate.name }}</span>
@@ -64,14 +64,14 @@ export default {
                   </div>
 
                   <!-- Seconda colonna -->
-                  <div class="col-md-4 col-6 quantity">
+                  <div class="col-md-4 col-7 quantity">
                     <div class="cartaddremove-container">
                       <CartAddRemove :plate="plate" />
                     </div>
                   </div>
 
                   <!-- Terza colonna -->
-                  <div class=" col-md-3 col-6">
+                  <div class=" col-md-3 col-8">
                     <div class="cart-price-container">
                       <div class="total-price">
                         <i class="me-1">€</i>
