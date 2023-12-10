@@ -22,12 +22,22 @@ export default {
         <img class="logo" src="img/logo.png" alt="Logo" />
         <span class="ms-2 fw-bold">Deliveboo</span>
       </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-          <li class="nav-item">
+      <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+        <ul
+          class="navbar-nav mb-2 mb-lg-0 align-items-lg-center align-items-end nav-coll"
+        >
+          <li class="nav-item me-3">
             <router-link
               class="nav-link"
               aria-current="page"
@@ -36,10 +46,6 @@ export default {
               Il nostro Team
             </router-link>
           </li>
-          <!-- eventuali router link -->
-        </ul>
-        <div class="navbar-nav ms-auto">
-          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"></div> -->
           <li class="nav-item me-3">
             <router-link
               class="nav-link"
@@ -56,6 +62,10 @@ export default {
               </span>
             </router-link>
           </li>
+          <!-- eventuali router link -->
+        </ul>
+        <div class="navbar-nav ms-auto">
+          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"></div> -->
         </div>
       </div>
     </div>
@@ -76,5 +86,10 @@ nav {
 .logo {
   width: 50px;
 }
+.nav-coll {
+  width: 100%;
+  justify-content: space-between;
+  background-color: rgba(43, 48, 53, 0.5);
+  border-radius: 10px;
+}
 </style>
-
