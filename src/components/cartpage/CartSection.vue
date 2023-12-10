@@ -64,14 +64,14 @@ export default {
                   </div>
 
                   <!-- Seconda colonna -->
-                  <div class="col-md-4 col-8 quantity">
+                  <div class="col-md-4 col-6 quantity">
                     <div class="cartaddremove-container">
                       <CartAddRemove :plate="plate" />
                     </div>
                   </div>
 
                   <!-- Terza colonna -->
-                  <div class=" col-md-3 col-4">
+                  <div class=" col-md-3 col-6">
                     <div class="cart-price-container">
                       <div class="total-price">
                         <i class="me-1">€</i>
