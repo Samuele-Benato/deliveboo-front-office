@@ -1,5 +1,5 @@
 <script>
-import CartAddRemove from "../CartAddRemove.vue";
+import CartAddRemove from "../cartpage/CartAddRemove.vue";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 
@@ -72,25 +72,19 @@ export default {
               <span class="buy">
                 <i class="fa fa-shopping-cart"></i> Aggiungi
               </span>
-              <span class="price">{{ plate.price }} $</span>
+              <span class="price">{{ plate.price }} €</span>
             </button>
 
             <!-- Bottone Rimuovi -->
-            <button v-if="!toAdd" class="btn btn-remove" @click="addOrRemove">
+            <button v-if="!toAdd" class="btn btn-sm btn-remove" @click="addOrRemove">
               <span class="buy remove">
                 <i class="fa fa-shopping-cart"></i> Rimuovi
               </span>
               <!-- <span class="price remove">{{ plate.price }} $</span> -->
             </button>
-
-            <!-- <button class="btn">
-                        <span class="price">{{plate.price}} $</span>
-                        <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                        <span class="buy">Aggiungi</span>
-                    </button> -->
           </div>
 
-          <CartAddRemove v-if="!toAdd" :plate="item" />
+          <CartAddRemove class="mb-3" v-if="!toAdd" :plate="item" />
         </div>
       </div>
       <div class="image-container col-6">
@@ -182,19 +176,17 @@ export default {
 }
 
 .btn-remove {
-  background-color: red;
-  color: white;
-  border: 1px solid red; /* Aggiungi questa riga se vuoi un bordo rosso */
+  background-color: rgb(188, 6, 6);
+  color: #dadada;
   transition: background-color 0.3s; /* Aggiungi un'animazione di transizione */
 
   &:hover {
     background-color: darkred;
   }
 }
-
 .remove {
-  background-color: red;
-  color: white;
+  background-color: rgb(188, 6, 6);;
+  color: #dadada;
 }
 .btn {
   transform: translateY(0px);

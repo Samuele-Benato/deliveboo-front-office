@@ -21,12 +21,17 @@ import {
   faArrowRight,
   faAddressCard,
   faLink,
+  faUserTie,
+  faCartArrowDown,
+  faCircleInfo,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 /* import specific brand icons */
 import {
   faLinkedinIn,
   faVuejs,
   faLaravel,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 /* add icons to the library */
 library.add(
@@ -37,9 +42,14 @@ library.add(
   faArrowRight,
   faAddressCard,
   faLink,
+  faUserTie,
+  faCartArrowDown,
+  faCircleInfo,
+  faTrashCan,
   faLinkedinIn,
   faVuejs,
-  faLaravel
+  faLaravel,
+  faGithub
 );
 
 import App from "./App.vue";

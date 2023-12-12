@@ -96,7 +96,6 @@ export default {
           :class="{
             disabled: !type.active,
             clickable: !type.active,
-            'green-text': type.active,
           }"
           @click="toggleType(type)"
         >
@@ -105,8 +104,8 @@ export default {
       </div>
 
       <div v-if="filteredRestaurants.length === 0">
-        <p class="title-type-section">
-          Nessun ristorante disponibile per la tipologia selezionata.
+        <p class="title-not-found">
+          Nessun ristorante disponibile per le tipologie selezionate.
         </p>
       </div>
 
@@ -137,18 +136,15 @@ export default {
   border-radius: 5px;
 }
 
-.green-text {
-  color: green;
-}
-
-.badge-types:hover {
+.disabled:hover {
   transform: scale(1.1);
-  transition: 0.2s linear;
-  box-shadow: 4px 4px 4px #d7d3d3;
+  transition: 0.3s ease-in-out;
 }
 
 .disabled {
-  box-shadow: 4px 4px 4px #d7d3d3 !important;
+  box-shadow: 1px 1px 8px 2px #8c8a8a !important;
+  background-color: #1f1f1f;
+  color: #d7d3d3;
 }
 
 .clickable {
@@ -201,5 +197,14 @@ export default {
   color: #d7d3d3;
   font-weight: 700;
   font-size: 3rem;
+}
+.title-not-found{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0) 100%);
+  padding: 0.5rem;
+  width: 100%;
+  color: #d7d3d3;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 </style>

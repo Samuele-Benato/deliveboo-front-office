@@ -44,92 +44,89 @@ export default {
 </script>
 
 <template>
-  <div class="restaurants-menu">
-      <div
-          v-for="(plate, index) in plates"
-          :key="index"
-        >
+  <div class="menu-background">
+    <div class="menu-container">
+      <div v-if="plates.length === 0" class="not-avaiable">
+        <h2 class="not-avaiable-title">
+          Il menu è in fase di aggiornamento, Al momento non è disponibile.
+        </h2>
+      </div>
+      <div v-else>
+        <div v-for="(plate, index) in plates" :key="index">
           <div v-if="detailRestaurant(plate, index)" class="restaurant-detail">
-            <h4 class="restaurant-title">Grazie per aver scelto {{ plate.restaurant.name }}</h4>
-            <span class="restaurant-address"><font-awesome-icon :icon="['fas', 'location-dot']" /><span class="ms-2">{{ plate.restaurant.address }}</span></span>
-            <span class="restaurant-phone"><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2">+{{ plate.restaurant.phone }}</span></span>
+            <h4 class="restaurant-title">
+              Grazie per aver scelto {{ plate.restaurant.name }}
+            </h4>
+            <span class="restaurant-address"
+              ><font-awesome-icon :icon="['fas', 'location-dot']" /><span
+                class="ms-2"
+                >{{ plate.restaurant.address }}</span
+              ></span
+            >
+            <span class="restaurant-phone"
+              ><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2"
+                >{{ plate.restaurant.phone }}</span
+              ></span
+            >
           </div>
         </div>
-    <div class="container-menu">
-        <h2 class="title-menu">Il nostro menù :</h2>
-        <div class="row">
-          <PlateCard  v-for="plate in plates" :key="plate.id" :plate="plate" />
+        <div class="menu-padding">
+          <h2 class="menu-title h1">Il nostro menù :</h2>
+          <div class="row">
+            <PlateCard v-for="plate in plates" :key="plate.id" :plate="plate" />
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.restaurants-menu {
+.menu-background {
   background-image: url("img/menu-background.jpg");
   background-size: 100%;
   background-size: cover;
   background-position: start;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  min-height: 50vh;
+  min-height: 73.5vh;
   height: 100%;
 }
-.container-menu {
+.menu-container {
   background-color: rgba($color: #000, $alpha: 0.8);
   width: 100%;
-  min-width: 540px;
-  min-height: 100vh;
+  min-width: 400px;
+  min-height: 73.5vh;
   height: 100%;
   padding-top: 1rem;
-  padding-left: 3rem;
+}
+.menu-padding {
+  padding: 0 3rem;
 }
 
-.title-menu {
+.menu-title {
   color: #d7d3d3;
   font-weight: 700;
-  font-size: 5rem;
   margin-top: 1.5rem;
 }
-.restaurant-detail{
- padding-bottom: 20px;
+.restaurant-detail,
+.not-avaiable {
+  padding-bottom: 20px;
   text-align: center;
-  background-color: rgba($color: #000000, $alpha: 0.9);
+  background-color: rgba($color: #000000, $alpha: 0.6);
   padding-top: 7rem;
 }
-.restaurant-title{
+.restaurant-title,
+.not-avaiable-title {
   color: #d7d3d3;
   font-weight: 700;
-  font-size: 2rem;
-}
-.restaurant-address,
-.restaurant-phone{
-  color: #d7d3d3;
-  font-size: 1.2rem;
-  display: block;
-}
-
-
-/* Schermi con larghezza inferiore a 993px */
-@media only screen and (max-width: 992px) {
-  .title-menu {
-  font-size: 4rem;
-}
-.restaurant-title{
   font-size: 1.5rem;
 }
 .restaurant-address,
-.restaurant-phone{
+.restaurant-phone,
+.restaurant-description {
+  color: #d7d3d3;
   font-size: 1rem;
-}
-}
-
-@media (max-width: 768px) {
-  .title-menu {
-  font-size: 3.5rem;
-}
-.container-menu {
-  padding-right: 3rem;
-}
+  display: block;
 }
 </style>
