@@ -1,9 +1,11 @@
 <script>
 import ConfirmPage from "./ConfirmPage.vue";
-
+import axios from "axios";
+import { store } from "../../data/store";
 export default {
   data() {
     return {
+      store,
       total_orders: 0,
       formData: {
         name: "",
@@ -36,7 +38,7 @@ export default {
   },
   methods: {
     submitForm() {
-      if (!this.formData.name) {
+      /*   if (!this.formData.name) {
         this.errors.name = "Inserisci il nome.";
         return;
       } else {
@@ -73,16 +75,19 @@ export default {
         return;
       } else {
         this.errors.email = "";
-      }
+      }*/
 
       // this.payWithCard();
       // // Aggiungi l'array cart al formData
       // this.formData.cart = this.cart;
       // // chiamata axios che manda i dati al back-end (Orders)
       axios
-        .post("http://localhost:8000/api/orders", this.formData)
+        .post(store.api.baseUrl + "orders", this.formData)
         .then((response) => {
           console.log("Dati inviati con successo:", response.data);
+        })
+        .catch((error) => {
+          console.error("Errore nella richiesta POST:", error);
         });
     },
 
@@ -116,7 +121,7 @@ export default {
         effettuare il pagamento.
       </div>
 
-      <form class="ms-auto row my-2 width-50" @submit.prevent="submitForm">
+      <form class="ms-auto row my-2 width-50" @submit="submitForm">
         <div class="col-md-6 col-12 mb-3">
           <label for="name" class="form_label">Nome:</label>
           <input
