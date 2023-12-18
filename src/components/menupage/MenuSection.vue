@@ -7,10 +7,23 @@ export default {
   data() {
     return {
       plates: [],
+      checkRestaurantId: false,
     };
   },
 
   components: { PlateCard },
+
+  computed: {
+    cartItems() {
+      return this.$store.state.cart;
+    },
+    cartTotal() {
+      return this.$store.state.cartTotal;
+    },
+    cartItemCount() {
+      return this.$store.state.cart.length;
+    },
+  },
 
   methods: {
     detailRestaurant(plate, index) {
@@ -64,7 +77,8 @@ export default {
               ></span
             >
             <span class="restaurant-phone"
-              ><font-awesome-icon :icon="['fas', 'phone']" /><span class="ms-2"
+              ><font-awesome-icon :icon="['fas', 'phone']" /><span
+                class="ms-2"
                 >{{ plate.restaurant.phone }}</span
               ></span
             >
