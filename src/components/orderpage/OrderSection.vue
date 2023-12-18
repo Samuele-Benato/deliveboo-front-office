@@ -13,7 +13,8 @@ export default {
         email: "",
         phone: "",
         address: "",
-        total_orders: 11.1,
+        total_orders: "",
+        cart: [],
       },
       orderCompleted: false,
     };
@@ -35,9 +36,30 @@ export default {
         this.formData.address
       );
     },
+
+    cartItems() {
+      return this.$store.state.cart;
+    },
+    cartTotal() {
+      return this.$store.state.cartTotal;
+    },
+    cartItemCount() {
+      return this.$store.state.cart.length;
+    },
   },
   methods: {
     submitForm() {
+      // Calcola il totale degli elementi nel carrello
+      const itemTotal = this.calculateItemTotal;
+
+      // Assegna il valore di calculateItemTotal a total_orders in formData
+      this.formData.total_orders = itemTotal;
+
+      // inserisco i dati del carrello con piatti e quantità
+      const itemCart = this.cartItems;
+
+      this.formData.cart = itemCart;
+
       axios
         .post(store.api.baseUrl + "orders", this.formData)
         .then((response) => {
