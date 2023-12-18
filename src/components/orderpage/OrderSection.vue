@@ -2,18 +2,18 @@
 import ConfirmPage from "./ConfirmPage.vue";
 import axios from "axios";
 import { store } from "../../data/store";
+
 export default {
   data() {
     return {
       store,
-      total_orders: 0,
       formData: {
         name: "",
         lastname: "",
         email: "",
         phone: "",
         address: "",
-        total_orders: 25,
+        total_orders: 11.1,
       },
       orderCompleted: false,
     };
@@ -38,76 +38,39 @@ export default {
   },
   methods: {
     submitForm() {
-      /*   if (!this.formData.name) {
-        this.errors.name = "Inserisci il nome.";
-        return;
-      } else {
-        this.errors.name = "";
-      }
-
-      if (!this.formData.lastname) {
-        this.errors.lastname = "Inserisci il cognome.";
-        return;
-      } else {
-        this.errors.lastname = "";
-      }
-      if (!this.formData.address) {
-        this.errors.address = "Inserisci l'indirizzo.";
-        return;
-      } else {
-        this.errors.address = "";
-      }
-      if (!this.formData.phone) {
-        this.errors.phone = "Inserisci un numero di telefono.";
-        return;
-      } else {
-        this.errors.phone = ""; // Cancella eventuali errori precedenti
-      }
-
-      if (isNaN(this.formData.phone)) {
-        this.errors.phone = "Inserisci un numero di telefono valido.";
-        return;
-      } else {
-        this.errors.phone = ""; // Cancella eventuali errori precedenti
-      }
-      if (!this.formData.email) {
-        this.errors.email = "Inserisci un indirizzo mail valido.";
-        return;
-      } else {
-        this.errors.email = "";
-      }*/
-
-      // this.payWithCard();
-      // // Aggiungi l'array cart al formData
-      // this.formData.cart = this.cart;
-      // // chiamata axios che manda i dati al back-end (Orders)
       axios
         .post(store.api.baseUrl + "orders", this.formData)
         .then((response) => {
           console.log("Dati inviati con successo:", response.data);
+          // Esegui azioni in base alla risposta ricevuta
+          if (response.status === 201) {
+            // Esempio: Nascondi il form e mostra un messaggio di successo
+            this.orderCompleted = true;
+          }
         })
         .catch((error) => {
           console.error("Errore nella richiesta POST:", error);
+          // Gestisci l'errore, ad esempio mostrando un messaggio all'utente
         });
     },
 
-    showSuccessMessage() {
-      if (this.isFormValid) {
-        setTimeout(() => {
-          this.orderCompleted = true;
-          this.$store.commit("clearCart");
-        }, 500);
-      } else {
-        alert("Completa tutti i campi del form prima di inviare.");
-      }
-    },
-    goToSuccessPage() {
-      // Passa i dati del modulo a ConfirmPage
-      this.$router.push({
-        name: "success",
-        query: { name: this.formData.name },
-      });
-    },
+    // showSuccessMessage() {
+    //   if (this.isFormValid) {
+    //     setTimeout(() => {
+    //       this.orderCompleted = true;
+    //       this.$store.commit("clearCart");
+    //     }, 500);
+    //   } else {
+    //     alert("Completa tutti i campi del form prima di inviare.");
+    //   }
+    // },
+    // goToSuccessPage() {
+    //   // Passa i dati del modulo a ConfirmPage
+    //   this.$router.push({
+    //     name: "success",
+    //     query: { name: this.formData.name },
+    //   });
+    // },
   },
 };
 </script>
@@ -121,7 +84,7 @@ export default {
         effettuare il pagamento.
       </div>
 
-      <form class="ms-auto row my-2 width-50" @submit="submitForm">
+      <form class="ms-auto row my-2 width-50" @submit.prevent="submitForm">
         <div class="col-md-6 col-12 mb-3">
           <label for="name" class="form_label">Nome:</label>
           <input
