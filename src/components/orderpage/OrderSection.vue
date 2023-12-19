@@ -1,12 +1,10 @@
 <script>
-import ConfirmPage from "./ConfirmPage.vue";
 import axios from "axios";
 import { store } from "../../data/store";
 
 export default {
   data() {
     return {
-      store,
       formData: {
         name: "",
         lastname: "",
@@ -19,7 +17,6 @@ export default {
       orderCompleted: false,
     };
   },
-  components: { ConfirmPage },
   computed: {
     calculateItemTotal() {
       return this.$store.state.cart.reduce(
@@ -49,50 +46,34 @@ export default {
   },
   methods: {
     submitForm() {
-      // Calcola il totale degli elementi nel carrello
       const itemTotal = this.calculateItemTotal;
-
-      // Assegna il valore di calculateItemTotal a total_orders in formData
       this.formData.total_orders = itemTotal;
-
-      // inserisco i dati del carrello con piatti e quantità
       const itemCart = this.cartItems;
-
       this.formData.cart = itemCart;
 
       axios
         .post(store.api.baseUrl + "orders", this.formData)
         .then((response) => {
           console.log("Dati inviati con successo:", response.data);
-          // Esegui azioni in base alla risposta ricevuta
+
           if (response.status === 201) {
-            // Esempio: Nascondi il form e mostra un messaggio di successo
             this.orderCompleted = true;
+            this.$store.commit("clearCart");
+            this.formData = {
+              name: "",
+              lastname: "",
+              email: "",
+              phone: "",
+              address: "",
+              total_orders: "",
+              cart: [],
+            };
           }
         })
         .catch((error) => {
           console.error("Errore nella richiesta POST:", error);
-          // Gestisci l'errore, ad esempio mostrando un messaggio all'utente
         });
     },
-
-    // showSuccessMessage() {
-    //   if (this.isFormValid) {
-    //     setTimeout(() => {
-    //       this.orderCompleted = true;
-    //       this.$store.commit("clearCart");
-    //     }, 500);
-    //   } else {
-    //     alert("Completa tutti i campi del form prima di inviare.");
-    //   }
-    // },
-    // goToSuccessPage() {
-    //   // Passa i dati del modulo a ConfirmPage
-    //   this.$router.push({
-    //     name: "success",
-    //     query: { name: this.formData.name },
-    //   });
-    // },
   },
 };
 </script>
@@ -100,12 +81,6 @@ export default {
 <template>
   <div class="order-background">
     <div class="order-container">
-      <!-- Mostra il messaggio di successo -->
-      <div v-if="orderCompleted" class="order-success-message mt-5">
-        Complimenti, hai completato il tuo ordine! Controlla la tua email per
-        effettuare il pagamento.
-      </div>
-
       <form class="ms-auto row my-2 width-50" @submit.prevent="submitForm">
         <div class="col-md-6 col-12 mb-3">
           <label for="name" class="form_label">Nome:</label>
@@ -165,27 +140,12 @@ export default {
         <!-- Bottone di invio -->
         <div class="text-center">
           <button type="submit" class="btn btn-primary mt-4">Invia dati</button>
-
-          <!-- !BOTTONE PER PAYMENTFAKE -->
-          <!-- <button
-              type="submit"
-              class="payment-btn"
-              @click="goToSuccessPage"
-              :disabled="!isFormValid"
-            >
-              Procedi al pagamento
-            </button> -->
         </div>
       </form>
-
-      <!-- Bottone per navigare alla pagina di successo -->
-      <!-- <button
-            v-if="orderCompleted"
-            class="btn btn-success mt-3"
-            @click="goToSuccessPage"
-          >
-            Vai alla pagina dei pagamenti
-          </button> -->
+    </div>
+    <div v-if="orderCompleted" class="order-success-message mt-5">
+      Complimenti, hai completato il tuo ordine! Controlla la tua email per
+      effettuare il pagamento.
     </div>
   </div>
 </template>
@@ -233,29 +193,5 @@ export default {
   border: none;
   display: block;
   width: 100%;
-}
-.payment-btn {
-  background-color: #222;
-  border-radius: 10px;
-  color: #c5b7d1;
-  font-weight: 600;
-  padding: 5px 10px;
-  border: none;
-}
-.payment-btn:hover {
-  transform: scale(1.05);
-  transition: 0.3s linear;
-  background-color: rgba($color: #222, $alpha: 0.8);
-  color: #aa9709;
-  box-shadow: 1px 1px 8px 2px #222 !important;
-}
-.width-50 {
-  width: 50%;
-}
-@media (max-width: 768px) {
-  .width-50 {
-    width: 80%;
-    margin: 0 auto;
-  }
 }
 </style>
