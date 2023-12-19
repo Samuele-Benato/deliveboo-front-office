@@ -110,7 +110,7 @@ export default {
             {{ plate.description }}
           </p>
 
-          <h6 class="text-white text-center" v-if="msgBlock">
+          <h6 class="text-danger text-center" v-if="msgBlock">
             Non puoi ordinare da questo ristorante
           </h6>
           <div class="control">
