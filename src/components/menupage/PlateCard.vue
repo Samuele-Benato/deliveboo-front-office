@@ -8,10 +8,38 @@ export default {
     plate: Object,
   },
   components: { CartAddRemove },
+
+  computed: {
+    cartItems() {
+      return this.$store.state.cart;
+    },
+    cartTotal() {
+      return this.$store.state.cartTotal;
+    },
+    cartItemCount() {
+      return this.$store.state.cart.length;
+    },
+
+    /* # 
+    Disabilito il bottone quando la lunghezza del carrello è maggiore di 0,
+    l'id del ristorante del piatto selezionato e quello del carrello non corrisponde
+    con la quantità maggiore di 0
+    */
+
+    disableAddOrRemoveButton() {
+      return (
+        this.cartItems.length > 0 &&
+        this.cartItems[0].restaurant.id !== this.plate.restaurant.id &&
+        this.item.qty > 0
+      );
+    },
+  },
+
   data() {
     return {
       toAdd: true,
       item: [],
+      msgBlock: false,
     };
   },
   methods: {
@@ -25,18 +53,36 @@ export default {
         plate: this.item,
         toAdd: this.toAdd,
       });
-      let toasMSG;
+      let toastMSG;
       this.toAdd
-        ? (toasMSG = "Aggiunto al carrello")
-        : (toasMSG = "Rimosso dal carrello");
-      toast(toasMSG, {
+        ? (toastMSG = "Aggiunto al carrello")
+        : (toastMSG = "Rimosso dal carrello");
+      toast(toastMSG, {
         autoClose: 1000,
       });
       this.toAdd = !this.toAdd;
     },
+
+    /* # 
+    Controllo se la condizone è vera blocco con un messaggio 
+    altrimenti niente chiamo la funzione addOrRemove
+*/
+    blockAddPlate() {
+      const itemCart = this.cartItems;
+      if (
+        (itemCart.length > 0 &&
+          itemCart[0].restaurant.id !== this.plate.restaurant.id) ||
+        this.item.qty > 0
+      ) {
+        (this.msgBlock = true),
+          console.log("Non puoi ordinare da questo ristorante");
+      } else {
+        console.log("Ordina quello che vuoi");
+        this.addOrRemove(); // Se desideri procedere con l'aggiunta o la rimozione
+      }
+    },
   },
   mounted() {
-    console.log(this.$store.state.cart);
     let cart = this.$store.state.cart;
     let obj = cart.find((o) => o.id === this.plate.id);
     if (obj) {
@@ -63,12 +109,18 @@ export default {
           <p class="information">
             {{ plate.description }}
           </p>
-          <!-- <p class="information">
-            {{ plate.price }}
-          </p> -->
+
+          <h6 class="text-danger text-center" v-if="msgBlock">
+            Non puoi ordinare da questo ristorante
+          </h6>
           <div class="control">
             <!-- Bottone Aggiungi -->
-            <button v-if="toAdd" class="btn" @click="addOrRemove">
+            <button
+              v-if="toAdd"
+              class="btn"
+              @click="blockAddPlate"
+              :disabled="disableAddOrRemoveButton"
+            >
               <span class="buy">
                 <i class="fa fa-shopping-cart"></i> Aggiungi
               </span>
@@ -76,7 +128,11 @@ export default {
             </button>
 
             <!-- Bottone Rimuovi -->
-            <button v-if="!toAdd" class="btn btn-sm btn-remove" @click="addOrRemove">
+            <button
+              v-if="!toAdd"
+              class="btn btn-sm btn-remove"
+              @click="addOrRemove"
+            >
               <span class="buy remove">
                 <i class="fa fa-shopping-cart"></i> Rimuovi
               </span>
@@ -185,7 +241,7 @@ export default {
   }
 }
 .remove {
-  background-color: rgb(188, 6, 6);;
+  background-color: rgb(188, 6, 6);
   color: #dadada;
 }
 .btn {
