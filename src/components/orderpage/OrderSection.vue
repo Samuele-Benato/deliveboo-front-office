@@ -44,6 +44,14 @@ export default {
       return this.$store.state.cart.length;
     },
   },
+  /* mounted: {
+    const cartArray = JSON.parse(localStorage.getItem('cart'));
+    cartArray.forEach(element => {
+    const quantity = element.count;
+    const item_id = element.item_id;
+    this.productsArray.push({ quantity, item_id }); //  salva le coppie chiavi valori che interessano
+    });
+},*/
   methods: {
     submitForm() {
       const itemTotal = this.calculateItemTotal;
