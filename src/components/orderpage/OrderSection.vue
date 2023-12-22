@@ -14,7 +14,7 @@ export default {
         address: "",
         total_orders: "",
         cart: [],
-        creditCardNumber: "", // Assicurati di avere questi campi
+        creditCardNumber: "",
         cvv: "",
         expireDate: "",
       },
@@ -56,47 +56,60 @@ export default {
 
   methods: {
     async submitForm() {
-      try {
-        // Tokenizzazione della carta con Braintree
-        const payload = await this.tokenizeCard();
+      // Verifica che tutti i campi della carta di credito siano compilati
+      if (
+        this.formData.creditCardNumber &&
+        this.formData.cvv &&
+        this.formData.expireDate
+      ) {
+        try {
+          // Invio dei dati al backend insieme al token
+          const payload = await this.tokenizeCard();
 
-        // Invio dei dati al backend insieme al token
-        const orderData = {
-          ...this.formData,
-          total_orders: this.calculateItemTotal,
-          cart: this.cartItems,
-          token: payload.nonce,
-        };
-
-        const response = await axios.post(
-          store.api.baseUrl + "orders",
-          orderData
-        );
-
-        console.log("Dati inviati con successo:", response.data);
-
-        if (response.status === 201) {
-          this.orderCompleted = true;
-          this.$store.commit("clearCart");
-          this.formData = {
-            name: "",
-            lastname: "",
-            email: "",
-            phone: "",
-            address: "",
-            total_orders: "",
-            cart: [],
+          const orderData = {
+            ...this.formData,
+            total_orders: this.calculateItemTotal,
+            cart: this.cartItems,
+            token: payload.nonce,
           };
+
+          const response = await axios.post(
+            store.api.baseUrl + "orders",
+            orderData
+          );
+
+          console.log("Dati inviati con successo:", response.data);
+
+          if (response.status === 201) {
+            this.orderCompleted = true;
+            this.$store.commit("clearCart");
+            // Resetta i campi del modulo
+            this.formData = {
+              name: "",
+              lastname: "",
+              email: "",
+              phone: "",
+              address: "",
+              total_orders: "",
+              cart: [],
+              creditCardNumber: "",
+              cvv: "",
+              expireDate: "",
+            };
+          }
+        } catch (error) {
+          console.error("Errore nella richiesta POST:", error);
         }
-      } catch (error) {
-        console.error("Errore nella richiesta POST:", error);
+      } else {
+        // Avvisa l'utente che alcuni campi della carta di credito sono vuoti
+        console.error("Compila tutti i campi della carta di credito.");
+        // Oppure puoi mostrare un messaggio all'utente informandolo di compilare tutti i campi necessari.
       }
     },
 
     async tokenizeCard() {
       try {
         const payload = await this.braintreeHostedFields.tokenize();
-        console.log(payload);
         return payload;
       } catch (error) {
         console.error(
@@ -111,7 +124,6 @@ export default {
       try {
         const resp = await axios.get("http://localhost:8000/api/generate");
         const token = resp.data.token;
-        console.log(token);
 
         const client = await braintree.client.create({
           authorization: token,
@@ -122,17 +134,13 @@ export default {
           fields: {
             number: {
               selector: "#creditCardNumber",
-              placeholder: "Inserisci numero carta",
             },
             cvv: {
               selector: "#cvv",
-              placeholder: "Inserisci CVV",
             },
             expirationDate: {
               selector: "#expireDate",
-              placeholder: "MM / AAAA",
             },
-            // Aggiungi qui altri campi che vuoi gestire
           },
         });
 
