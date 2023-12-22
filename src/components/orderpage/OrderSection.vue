@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "../../data/store";
+import braintree from "braintree-web";
 
 export default {
   data() {
@@ -15,6 +16,7 @@ export default {
         cart: [],
       },
       orderCompleted: false,
+      braintreeHostedFields: null,
     };
   },
   computed: {
@@ -44,6 +46,11 @@ export default {
       return this.$store.state.cart.length;
     },
   },
+
+  mounted() {
+    this.initializeBraintree();
+  },
+
   methods: {
     submitForm() {
       const itemTotal = this.calculateItemTotal;
@@ -73,6 +80,41 @@ export default {
         .catch((error) => {
           console.error("Errore nella richiesta POST:", error);
         });
+    },
+
+    async initializeBraintree() {
+      try {
+        const resp = await axios.get("http://localhost:8000/api/generate");
+        const token = resp.data.token;
+        console.log(token);
+
+        const client = await braintree.client.create({
+          authorization: token,
+        });
+
+        const hostedFieldsInstance = await braintree.hostedFields.create({
+          client,
+          fields: {
+            number: {
+              selector: "#creditCardNumber",
+              placeholder: "Inserisci numero carta",
+            },
+            cvv: {
+              selector: "#cvv",
+              placeholder: "Inserisci CVV",
+            },
+            expirationDate: {
+              selector: "#expireDate",
+              placeholder: "MM / AAAA",
+            },
+            // Aggiungi qui altri campi che vuoi gestire
+          },
+        });
+
+        this.braintreeHostedFields = hostedFieldsInstance;
+      } catch (error) {
+        console.error("Error fetching or using the token:", error.message);
+      }
     },
   },
 };
@@ -135,6 +177,26 @@ export default {
             v-model="formData.address"
             required
           />
+        </div>
+
+        <div class="mb-3">
+          <label for="creditCardNumber" class="form_label">Numero Carta:</label>
+          <input
+            type="text"
+            class="input-form"
+            id="creditCardNumber"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="cvv" class="form_label">CVV:</label>
+          <input type="text" class="input-form" id="cvv" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="expireDate" class="form_label">Scadenza:</label>
+          <input type="text" class="input-form" id="expireDate" required />
         </div>
 
         <!-- Bottone di invio -->
