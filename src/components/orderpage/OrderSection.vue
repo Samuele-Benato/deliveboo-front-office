@@ -14,6 +14,9 @@ export default {
         address: "",
         total_orders: "",
         cart: [],
+        creditCardNumber: "", // Assicurati di avere questi campi
+        cvv: "",
+        expireDate: "",
       },
       orderCompleted: false,
       braintreeHostedFields: null,
@@ -52,34 +55,56 @@ export default {
   },
 
   methods: {
-    submitForm() {
-      const itemTotal = this.calculateItemTotal;
-      this.formData.total_orders = itemTotal;
-      const itemCart = this.cartItems;
-      this.formData.cart = itemCart;
+    async submitForm() {
+      try {
+        // Tokenizzazione della carta con Braintree
+        const payload = await this.tokenizeCard();
 
-      axios
-        .post(store.api.baseUrl + "orders", this.formData)
-        .then((response) => {
-          console.log("Dati inviati con successo:", response.data);
+        // Invio dei dati al backend insieme al token
+        const orderData = {
+          ...this.formData,
+          total_orders: this.calculateItemTotal,
+          cart: this.cartItems,
+          token: payload.nonce,
+        };
 
-          if (response.status === 201) {
-            this.orderCompleted = true;
-            this.$store.commit("clearCart");
-            this.formData = {
-              name: "",
-              lastname: "",
-              email: "",
-              phone: "",
-              address: "",
-              total_orders: "",
-              cart: [],
-            };
-          }
-        })
-        .catch((error) => {
-          console.error("Errore nella richiesta POST:", error);
-        });
+        const response = await axios.post(
+          store.api.baseUrl + "orders",
+          orderData
+        );
+
+        console.log("Dati inviati con successo:", response.data);
+
+        if (response.status === 201) {
+          this.orderCompleted = true;
+          this.$store.commit("clearCart");
+          this.formData = {
+            name: "",
+            lastname: "",
+            email: "",
+            phone: "",
+            address: "",
+            total_orders: "",
+            cart: [],
+          };
+        }
+      } catch (error) {
+        console.error("Errore nella richiesta POST:", error);
+      }
+    },
+
+    async tokenizeCard() {
+      try {
+        const payload = await this.braintreeHostedFields.tokenize();
+        console.log(payload);
+        return payload;
+      } catch (error) {
+        console.error(
+          "Errore nella tokenizzazione della carta:",
+          error.message
+        );
+        throw error;
+      }
     },
 
     async initializeBraintree() {
@@ -185,18 +210,31 @@ export default {
             type="text"
             class="input-form"
             id="creditCardNumber"
+            v-model="formData.creditCardNumber"
             required
           />
         </div>
 
         <div class="mb-3">
           <label for="cvv" class="form_label">CVV:</label>
-          <input type="text" class="input-form" id="cvv" required />
+          <input
+            type="text"
+            class="input-form"
+            id="cvv"
+            v-model="formData.cvv"
+            required
+          />
         </div>
 
         <div class="mb-3">
           <label for="expireDate" class="form_label">Scadenza:</label>
-          <input type="text" class="input-form" id="expireDate" required />
+          <input
+            type="text"
+            class="input-form"
+            id="expireDate"
+            v-model="formData.expireDate"
+            required
+          />
         </div>
 
         <!-- Bottone di invio -->
