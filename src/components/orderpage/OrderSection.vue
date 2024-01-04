@@ -1,7 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "../../data/store";
-import braintree from "braintree-web";
+import { router } from "../../router/index";
 
 export default {
   data() {
@@ -14,12 +14,8 @@ export default {
         address: "",
         total_orders: "",
         cart: [],
-        creditCardNumber: "",
-        cvv: "",
-        expireDate: "",
       },
       orderCompleted: false,
-      braintreeHostedFields: null,
     };
   },
   computed: {
@@ -50,40 +46,17 @@ export default {
     },
   },
 
-  mounted() {
-    this.initializeBraintree();
-  },
-
   methods: {
     async submitForm() {
-      // Verifica che tutti i campi della carta di credito siano compilati
-      if (
-        this.formData.creditCardNumber &&
-        this.formData.cvv &&
-        this.formData.expireDate
-      ) {
-        try {
-          // Invio dei dati al backend insieme al token
-          const payload = await this.tokenizeCard();
+      this.formData.cart = this.cartItems;
+      this.formData.total_orders = this.cartTotal;
 
-          const orderData = {
-            ...this.formData,
-            total_orders: this.calculateItemTotal,
-            cart: this.cartItems,
-            token: payload.nonce,
-          };
-
-          const response = await axios.post(
-            store.api.baseUrl + "orders",
-            orderData
-          );
-
-          console.log("Dati inviati con successo:", response.data);
+      axios
+        .post(store.api.baseUrl + "orders", this.formData)
+        .then((response) => {
+          console.log("dati inviati con successo", response.data);
 
           if (response.status === 201) {
-            this.orderCompleted = true;
-            this.$store.commit("clearCart");
-            // Resetta i campi del modulo
             this.formData = {
               name: "",
               lastname: "",
@@ -92,62 +65,14 @@ export default {
               address: "",
               total_orders: "",
               cart: [],
-              creditCardNumber: "",
-              cvv: "",
-              expireDate: "",
             };
+            // reindirizzol'utente alla pagina del pagamento
+            router.push({ name: "payment" });
           }
-        } catch (error) {
-          console.error("Errore nella richiesta POST:", error);
-        }
-      } else {
-        // Avvisa l'utente che alcuni campi della carta di credito sono vuoti
-        console.error("Compila tutti i campi della carta di credito.");
-        // Oppure puoi mostrare un messaggio all'utente informandolo di compilare tutti i campi necessari.
-      }
-    },
-
-    async tokenizeCard() {
-      try {
-        const payload = await this.braintreeHostedFields.tokenize();
-        return payload;
-      } catch (error) {
-        console.error(
-          "Errore nella tokenizzazione della carta:",
-          error.message
-        );
-        throw error;
-      }
-    },
-
-    async initializeBraintree() {
-      try {
-        const resp = await axios.get("http://localhost:8000/api/generate");
-        const token = resp.data.token;
-
-        const client = await braintree.client.create({
-          authorization: token,
+        })
+        .catch((error) => {
+          console.error("errore nella richiesta POST", error);
         });
-
-        const hostedFieldsInstance = await braintree.hostedFields.create({
-          client,
-          fields: {
-            number: {
-              selector: "#creditCardNumber",
-            },
-            cvv: {
-              selector: "#cvv",
-            },
-            expirationDate: {
-              selector: "#expireDate",
-            },
-          },
-        });
-
-        this.braintreeHostedFields = hostedFieldsInstance;
-      } catch (error) {
-        console.error("Error fetching or using the token:", error.message);
-      }
     },
   },
 };
@@ -208,39 +133,6 @@ export default {
             class="input-form"
             id="address"
             v-model="formData.address"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="creditCardNumber" class="form_label">Numero Carta:</label>
-          <input
-            type="text"
-            class="input-form"
-            id="creditCardNumber"
-            v-model="formData.creditCardNumber"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="cvv" class="form_label">CVV:</label>
-          <input
-            type="text"
-            class="input-form"
-            id="cvv"
-            v-model="formData.cvv"
-            required
-          />
-        </div>
-
-        <div class="mb-3">
-          <label for="expireDate" class="form_label">Scadenza:</label>
-          <input
-            type="text"
-            class="input-form"
-            id="expireDate"
-            v-model="formData.expireDate"
             required
           />
         </div>
