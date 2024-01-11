@@ -11,6 +11,7 @@ export default {
       braintreeClient: null,
       hostedFields: null,
       total: 0,
+      cardTypeImage: null,
     };
   },
 
@@ -60,10 +61,10 @@ export default {
 
         this.hostedFields = hostedFieldsInstance;
 
-        //this.hostedFields.on("cardTypeChange", (event) => {
-        //  const cardType = event.cards[0].type;
-        //  this.cardTypeImage = `../../public/img/card-images/${cardType}.png`;
-        //});
+        this.hostedFields.on("cardTypeChange", (event) => {
+          const cardType = event.cards[0].type;
+          this.cardTypeImage = `../../public/img/card-images/${cardType}.png`;
+        });
       } catch (error) {
         console.error("Errore durante l'inizializzazione di Braintree:", error);
       }
@@ -86,6 +87,8 @@ export default {
         // this.store.cart = [];
         // localStorage.removeItem("cartItems");
         // elimino i precedenti campi di hostedFields
+        this.$store.commit("clearCart");
+
         this.hostedFields.teardown();
         // vado alla rotta di ringraziamento
         router.push({ name: "thanks" });
@@ -127,9 +130,22 @@ export default {
             </div>
           </form>
         </div>
+        <div class="col-3">
+          <img
+            v-if="cardTypeImage !== null && cardTypeImage !== undefined"
+            :src="cardTypeImage"
+            alt="Card Type"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.col-3 {
+  img {
+    max-width: 100%;
+  }
+}
+</style>
