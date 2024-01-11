@@ -18,6 +18,7 @@ export default {
           class="d-flex align-items-center justify-content-center text-decoration-none"
           :to="{ name: 'home' }"
         >
+          <img class="logo-a" src="img/logo.png" alt="Logo" />
           <span class="logo-b">Deliveboo</span>
         </router-link>
       </div>
