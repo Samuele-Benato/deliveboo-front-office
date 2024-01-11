@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "../data/store";
+import { router } from "../router/index";
 import braintree from "braintree-web";
 
 export default {
@@ -59,10 +60,10 @@ export default {
 
         this.hostedFields = hostedFieldsInstance;
 
-        this.hostedFields.on("cardTypeChange", (event) => {
-          const cardType = event.cards[0].type;
-          this.cardTypeImage = `../../public/img/card-images/${cardType}.png`;
-        });
+        //this.hostedFields.on("cardTypeChange", (event) => {
+        //  const cardType = event.cards[0].type;
+        //  this.cardTypeImage = `../../public/img/card-images/${cardType}.png`;
+        //});
       } catch (error) {
         console.error("Errore durante l'inizializzazione di Braintree:", error);
       }
@@ -87,7 +88,7 @@ export default {
         // elimino i precedenti campi di hostedFields
         this.hostedFields.teardown();
         // vado alla rotta di ringraziamento
-        // router.push({ name: "thanks" });
+        router.push({ name: "thanks" });
       } catch (error) {
         console.error("Errore durante il pagamento:", error);
       }
