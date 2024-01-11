@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { store } from "../../data/store";
+import { router } from "../../router/index";
 
 export default {
   data() {
@@ -44,21 +45,18 @@ export default {
       return this.$store.state.cart.length;
     },
   },
+
   methods: {
-    submitForm() {
-      const itemTotal = this.calculateItemTotal;
-      this.formData.total_orders = itemTotal;
-      const itemCart = this.cartItems;
-      this.formData.cart = itemCart;
+    async submitForm() {
+      this.formData.cart = this.cartItems;
+      this.formData.total_orders = this.cartTotal;
 
       axios
         .post(store.api.baseUrl + "orders", this.formData)
         .then((response) => {
-          console.log("Dati inviati con successo:", response.data);
+          console.log("dati inviati con successo", response.data);
 
           if (response.status === 201) {
-            this.orderCompleted = true;
-            this.$store.commit("clearCart");
             this.formData = {
               name: "",
               lastname: "",
@@ -68,10 +66,12 @@ export default {
               total_orders: "",
               cart: [],
             };
+            // reindirizzol'utente alla pagina del pagamento
+            router.push({ name: "payment" });
           }
         })
         .catch((error) => {
-          console.error("Errore nella richiesta POST:", error);
+          console.error("errore nella richiesta POST", error);
         });
     },
   },
