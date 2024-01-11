@@ -63,11 +63,38 @@ export default {
 
         this.hostedFields.on("cardTypeChange", (event) => {
           const cardType = event.cards[0].type;
-          this.cardTypeImage = `../../public/img/card-images/${cardType}.png`;
+          const imagePath = `../../public/img/card-images/${cardType}.png`;
+
+          // Verifica se l'immagine esiste
+          this.checkImageExists(imagePath)
+            .then((exists) => {
+              if (exists) {
+                this.cardTypeImage = imagePath;
+              } else {
+                this.cardTypeImage = null;
+              }
+            })
+            .catch((error) => {
+              console.error(
+                "Errore durante il caricamento dell'immagine:",
+                error
+              );
+              this.cardTypeImage = null;
+            });
         });
       } catch (error) {
         console.error("Errore durante l'inizializzazione di Braintree:", error);
       }
+    },
+
+    // Funzione per verificare se l'immagine esiste
+    checkImageExists(imageUrl) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = imageUrl;
+      });
     },
 
     async handlePayment() {
@@ -84,9 +111,6 @@ export default {
 
         console.log("Risposta pagamento: positiva", response.data);
         // svuoto il carrello e il localStorage se il pagamento è stato effettuato
-        // this.store.cart = [];
-        // localStorage.removeItem("cartItems");
-        // elimino i precedenti campi di hostedFields
         this.$store.commit("clearCart");
 
         this.hostedFields.teardown();
@@ -101,41 +125,48 @@ export default {
 </script>
 
 <template>
-  <div class="wrapper-payment">
+  <div class="wrapper-payment" style="height: 65vh">
     <div class="container">
-      <h1>{{ title }}</h1>
-      <div class="row flex-column-reverse align-items-center flex-lg-row">
-        <div class="col-12">
+      <div class="row" style="margin-top: 100px">
+        <h1>{{ title }}</h1>
+        <!-- Colonna per l'inserimento dei dati -->
+        <div class="col-md-6">
           <form
-            class="ms-auto row my-2 width-50"
+            class="ms-auto row my-2 payment-form"
             @submit.prevent="handlePayment"
           >
-            <div class="form-group my-3">
+            <!-- Campi per l'inserimento dei dati della carta -->
+            <div class="form-group my-3 col-12">
               <label for="card-number">Cart Number</label>
               <div id="card-number"></div>
             </div>
 
-            <div class="form-group my-3">
-              <label for="expiration-date">Exipiration Date</label>
+            <div class="form-group my-3 col-12">
+              <label for="expiration-date">Expiration Date</label>
               <div id="expiration-date"></div>
             </div>
 
-            <div class="form-group my-3">
+            <div class="form-group my-3 col-12">
               <label for="cvv">CVV</label>
               <div id="cvv"></div>
             </div>
 
-            <div class="text-center">
-              <button type="submit" class="button-pay">Pay</button>
+            <div class="text-center col-12">
+              <button type="submit" class="btn btn-primary">Pay</button>
             </div>
           </form>
         </div>
-        <div class="col-3">
+
+        <!-- Colonna per l'immagine del tipo di carta -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <!-- Visualizza il messaggio se l'immagine della carta non è disponibile -->
           <img
             v-if="cardTypeImage !== null && cardTypeImage !== undefined"
             :src="cardTypeImage"
             alt="Card Type"
+            class="img-fluid"
           />
+          <p v-else>Carta non riconosciuta</p>
         </div>
       </div>
     </div>
@@ -143,9 +174,33 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.col-3 {
-  img {
-    max-width: 100%;
-  }
+/* Aggiunta stile per rendere l'immagine responsive */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.payment-form {
+  /* Aggiunta dello sfondo grigio (#e9eaec) */
+  background-color: #e9eaec;
+  /* Aggiunta di spaziatura interna */
+  padding: 20px;
+  /* Bordo arrotondato */
+  border-radius: 8px;
+  /* Aggiunta di ombra per uno stile più marcato */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#card-number,
+#expiration-date,
+#cvv {
+  background-color: #dadada;
+  border-radius: 5px;
+  color: #dadada;
+  font-weight: 600;
+  padding: 7px 10px;
+  border: none;
+  display: block;
+  width: 100%;
+  height: 40px;
 }
 </style>
