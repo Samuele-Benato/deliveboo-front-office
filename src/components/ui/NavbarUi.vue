@@ -19,7 +19,6 @@ export default {
         class="navbar-brand ms-2 d-flex align-items-center justify-content-center"
         :to="{ name: 'home' }"
       >
-        <img class="logo" src="img/logo.png" alt="Logo" />
         <span class="ms-2 fw-bold">Deliveboo</span>
       </router-link>
       <button
