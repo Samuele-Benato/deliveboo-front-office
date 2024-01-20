@@ -97,7 +97,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu-background {
-  background-image: url("img/menu-background.jpg");
+  background-image: url("../../../public/img/menu-background.jpg");
   background-size: 100%;
   background-size: cover;
   background-position: start;

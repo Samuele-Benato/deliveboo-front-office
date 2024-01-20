@@ -151,7 +151,7 @@ export default {
   cursor: pointer;
 }
 .restaurants-type {
-  background-image: url("img/restaurant-type-background.jpeg");
+  background-image: url("../../../public/img/restaurant-type-background.jpeg");
   background-size: 50%;
   background-size: cover;
   background-position: start;
@@ -198,8 +198,15 @@ export default {
   font-weight: 700;
   font-size: 3rem;
 }
-.title-not-found{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.6) 80%, rgba(0, 0, 0, 0) 100%);
+.title-not-found {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 20%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 0.5rem;
   width: 100%;
   color: #d7d3d3;
