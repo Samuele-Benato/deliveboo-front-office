@@ -18,7 +18,7 @@ export default {
           class="d-flex align-items-center justify-content-center text-decoration-none"
           :to="{ name: 'home' }"
         >
-          <img class="logo-a" src="../../public/img/logo.png" alt="Logo" />
+          <img class="logo-a" src="img/logo.png" alt="Logo" />
           <span class="logo-b">Deliveboo</span>
         </router-link>
       </div>
@@ -36,11 +36,11 @@ export default {
   min-height: 80vh;
 }
 .payment-background {
-  background-image: url("../../public/img/payment-background.jpg");
+  background-image: url("img/payment-background.jpg");
   background-position: start;
 }
 .confirm-background {
-  background-image: url("../../public/img/confirm-background.jpg");
+  background-image: url("img/confirm-background.jpg");
   background-position: center;
 }
 

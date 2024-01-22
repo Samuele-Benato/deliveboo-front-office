@@ -126,7 +126,7 @@
 
 <style scoped lang="scss">
 .about-background {
-  background-image: url("../../../public/img/about-background.jpg");
+  background-image: url("img/about-background.jpg");
   background-size: 100%;
   background-size: cover;
   background-position: start;

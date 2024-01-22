@@ -122,7 +122,7 @@ export default {
 
 <style scoped lang="scss">
 .cart-background {
-  background-image: url("../../../public/img/cart-background.jpg");
+  background-image: url("img/cart-background.jpg");
   background-size: 100%;
   background-size: cover;
   background-position: center;

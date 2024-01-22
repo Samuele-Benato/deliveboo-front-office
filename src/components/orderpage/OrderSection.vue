@@ -152,7 +152,7 @@ export default {
 
 <style lang="scss" scoped>
 .order-background {
-  background-image: url("../../../public/img/order-background.jpg");
+  background-image: url("img/order-background.jpg");
   background-size: 100%;
   background-size: cover;
   background-position: start;
