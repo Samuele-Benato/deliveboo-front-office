@@ -151,7 +151,7 @@ export default {
   cursor: pointer;
 }
 .restaurants-type {
-  background-image: url("img/restaurant-type-background.jpeg");
+  background-image: url("/img/restaurant-type-background.jpeg");
   background-size: 50%;
   background-size: cover;
   background-position: start;

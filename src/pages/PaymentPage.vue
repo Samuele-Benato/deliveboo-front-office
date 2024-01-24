@@ -63,7 +63,7 @@ export default {
 
         this.hostedFields.on("cardTypeChange", (event) => {
           const cardType = event.cards[0].type;
-          const imagePath = `img/card-images/${cardType}.png`;
+          const imagePath = `/img/card-images/${cardType}.png`;
 
           // Verifica se l'immagine esiste
           this.checkImageExists(imagePath)
