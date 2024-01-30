@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [vue()],
   base: "/",
   build: {
-    rollupOptions: {},
+    rollupOptions: {
+      external: [/\.(png)$/i],
+    },
   },
 });
