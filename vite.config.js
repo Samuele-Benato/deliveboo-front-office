@@ -7,7 +7,7 @@ export default defineConfig({
   base: "/",
   build: {
     rollupOptions: {
-      external: [/\.(png)$/i],
+      external: [],
     },
   },
 });
