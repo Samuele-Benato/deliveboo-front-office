@@ -5,7 +5,7 @@
         <div class="row">
           <div class="mb-4 col-6 col-md-3">
             <div class="center-content">
-              <img class="logo" src="img/logo.png" alt="Logo" />
+              <!-- <img class="logo" src="img/logo.png" alt="Logo" /> -->
 
               <h3 class="ms-2 col-title">Deliveboo<br />Authors :</h3>
             </div>
