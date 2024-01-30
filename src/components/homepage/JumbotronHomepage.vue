@@ -23,7 +23,7 @@
   justify-content: center;
 }
 .jumbotron {
-  background-image: url("img/jumbotron.jpg");
+  background-image: url("/img/jumbotron.jpg");
   background-size: cover;
   background-position: center;
   min-height: 30vh;

@@ -85,7 +85,7 @@
 
 <style scoped lang="scss">
 .footer-background {
-  background-image: url("img/footer-background.jpg");
+  background-image: url("/img/footer-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

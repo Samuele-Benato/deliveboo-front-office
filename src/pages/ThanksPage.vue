@@ -36,11 +36,11 @@ export default {
   min-height: 80vh;
 }
 .payment-background {
-  background-image: url("img/payment-background.jpg");
+  background-image: url("/img/payment-background.jpg");
   background-position: start;
 }
 .confirm-background {
-  background-image: url("img/confirm-background.jpg");
+  background-image: url("/img/confirm-background.jpg");
   background-position: center;
 }
 
